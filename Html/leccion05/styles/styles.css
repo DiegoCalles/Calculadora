@@ -1,0 +1,57 @@
+h1{
+    color: #2a9d8f;
+    text-align: center;
+
+}
+
+
+a:link, a:visited{
+    background-color: #e76f51;
+    color: #e9c46a;
+    padding: 20px 150px ;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border:10px solid #264653;
+ }
+
+a:hover, a:active{
+     background-color: #f4a261;
+ }
+
+P{
+    text-align: center;
+    background-color: #e76f51;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border:5px solid #264653;
+
+}
+
+
+/*
+leccion 5 a con eventos y a con imagenes como links
+a:link{
+    color: #fb8500;
+    text-decoration: none;
+}
+
+a:visited{
+    color:#219ebc;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #8ecae6;
+    text-decoration: underline;
+}
+a:active{
+    color: #023047;
+    text-decoration: none;
+}
+a img{
+    width: 150px;
+}
+*/

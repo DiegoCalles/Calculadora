@@ -1,0 +1,511 @@
+# Intro al internet
+
+- dipositivos que tienen info y la suministran  (servidores)
+- dipositivos que consultan info (cel , tablets, laptops, etc)
+
+# acceder al internet
+
+1. por el nombre y url (Uniform Resource Locator)
+2. por la IP (internet protocol): si quiero saber la ip de un sitio, tipeo en la url dns checker (Domain Name Services)  
+   * si copiamos el dominio (google.com por ejm), van a aparecer varios servidores de distintos lugares que nos pueden dar con la ip
+     del sitio por Ejm:
+     Mountain View CA, United States
+     Google 	                              142.251.41.14
+
+#   HTML (Hipertext markup language) : la forma en la que se envian la informacion en internet
+
+* Extensiones para html en visual studio code:
+1. prettier - code formatter: para indentacion
+2. live server: para ejecutar nuestras pag web en nuestro navegador web 
+3. path intellisense: para ubicar y seleccionar las rutas y los archivos
+4. live server preview : para previsualizar mi sitio desde visual studio ( OJO: para codigos no complejos. osea,  no muy largos)
+
+- para trabajar con live server: click derecho  open with live server. 
+- si lo quiero detener: click derecho, stop live server
+OJO: una vez detenido el servidor, refresco la pag y deja de mostrarme el contenido del index
+
+- si quiero levantar el servicio de nuevo: click en Go live, en la parte inferior derecha del visual o el primer paso (open with live server)
+
+
+
+http://127.0.0.1:5500/Html/leccion01/index.html
+
+http://127.0.0.1: IP del servidor (mi pc)
+5500: Puerto Habiltado
+/Html/leccion01/index.html: Url o path del sitio
+
+- si quiero ver el preview: click derecho ir a paleta de comandos (Ctrl+mayus+P) y tipeo el simbolo mayor que(>), seguido de la extencion que 
+  quiero buscar
+
+# generacion automatica del doc HTML
+ el simbolo "!" +  la tecla "tab".
+ #Atajos de teclado
+ Ctrl+ espacio (completa la sentencia que se está escribiendo) y en los atributos css de las etiquetas html me muestra mas atributos
+
+# formatos Html
+1. click derecho dar formato al documento o (mayus + alt + f)
+2. click en configurar y seleccionar la opcion de prettier
+
+
+# Meta 
+1. <meta http-equiv="X-UA-Compatible" content="IE=edge" /> para que genere compatibilidad con navegadores internet explorer  
+2.  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> para el manejo responsivo en distintos dispositivos
+
+# Etiqueta <a> Links
+1. con el atributo target= "_blank" dentro de la etiqueta <a> me abre la pagina en otra pestaña
+
+# Imagenes
+-con el src de Rutas con servidores locales
+- con el src de Rutas con servidores remotos (en la web)
+
+* Atributos:
+- alt = texto alternativo si no esta bien la ruta (src)
+- width: ancho
+- height: alto
+- title: cuando hacemos hoversobre la img, se muestra el titulo ( se muestra en un pop up)
+- style: para modificar estilos en general
+
+# <pre> preformated:
+si en mi etiqueta <p> le doy enter y divido el párrafo en dos, en el navegador me mostrará el mismo párrafo. si quiero que respete
+la division debo meterlo en una etiqueta <pre>, esta etiqueta respeta los enters, los espacios, etc...
+
+# formatos de texto html
+strong, sup, sub, mark, em, i, b, d, ins, small
+
+# char ref html 
+&gt; por ejemplo. seria el simbolo ">" 
+&commat; para el simbolo de "@"
+esto es para crear caracteres especiales que en algunos lenguajes de prog no son aceptados o cuando se necesite acentuar una letra y 
+se genere un error al hacerlo directamente
+
+OJO: las referencias están tanto en mayusculas como en minusculas
+
+
+visit dev.w3.org 
+
+# para agregar un link de email debo trabajar con el atributo href="mailto: correoDeseado@gmail.com"
+
+* atributos para enviar email:
+1. ?subject : seria el titulo (el simbolo de interrogacion antes del titulo/subject)
+2. &body: seria el cuerpo del email (el contenido del mensaje) OJO: el simbolo and(&) antes del atributo body para agregar otro 
+   atributo
+
+# colores HTML color names
+- categorias de colores en html
+1. por nombre
+2. por codigo rgb ( red, green, blue) o rgba(red, green, blue, alpha de transparencia)
+   OJO: la transparencia la manejas con porcentajes desde el cero al uno (0 a 1)
+3.por HEX (hexadecimal) del (0 al 9) y de la (A a F)
+   OJO: 0 es el menor valor y F es el mayor
+4.HSl(Hue (matiz), saturacion, lightness ) o HSLA (A de alpha)
+   - el hue son los colores (una rueda de 0 a 360 colores)
+   - la s  es saturacion de los grises cero gris y mayor seria el color que hemos seleccionado, 
+   - l es  blanco y negro:  menos blanco , mas seria negro
+   - transparencia de 0 a 1
+
+# cascadeo en las hojas de Estilo css
+
+se le llama cascadeo por que va desde el elemento mas externo (padre) a elementos mas internos (hijos)
+OJO: un estilo desde un tag html sobre escribe a un estilo desde un link de documento css
+
+
+                       overriden by                overriden by                  overriden by
+EXternal browser style >>>>>>>>>>>> EXternal style >>>>>>>>>>>>> Embedded style  >>>>>>>>>>>>> inline style
+from  any browser                   doc.css (link tag)           Meta (style tag)              Html (style attribute)   
+
+
+# Box model
+
+cualquier elemeto html con el que trabajemos esta compuesto de estos elementos:
+
+ 1. contenido:parte  mas interna
+ 2. padding: parte externa mas proxima al contenido
+ 3. borde: le sigue al padding
+ 4. margin: la parte mas extrena del contenido, viene despues del border
+ * todos se pueden modificar con los atributos top, bottom, left, right
+
+ Ejm:
+                              
+
+
+                                                               
+
+                                             margin  top
+
+                                             border  top
+
+                                             padding top
+
+     margin left   borderleft  padding left     content     margin right   border right   padding right 
+                                          
+                                             margin  bottom
+
+                                             border  bottom
+
+                                             padding bottom
+
+* margin: auto; para centrar horizontalmente. ahí los valores right y left no tienen valor 
+* text-align: center;  para centrar solo el texto
+
+# paletas de colores
+
+serch for paleta de colores en google (coolors.co)
+
+# elemento Html "a" y sus eventos en Css: 
+   link es el estado en que se encuentra cuando aun no es visitado
+
+* para quitar el subrayado, con el atributo: text-decoration: none;
+* para comenzar  a modificar los estados y sus eventos de los elementos "a" (links)  desde css.
+
+
+
+1. a:link{}. para el estado del link (parte subrayada, azul por defecto) antes de hacerle click.
+  * si reviso en la pagina y le doy click al link este pasará de azul a purpura. si le doy click y lo dejo
+    apretado, este permanecerá rojo. despues de visitar el link, siempre quedará en purpura.
+    para cambiarlo debo hacer algun cambio en el elemento (ojo: al href)
+2. a:visited{}. cuando ya se le ha dado click
+
+3. a:hover{}: cuando pasamos el cursor sobre el elmento
+
+4. a:active{}: cuando le damos click
+
+
+# links con imagenes en Html:
+* son imagenes que funcionan como links
+1. un elemeto "img" dentro de un elemento "a"
+
+# links con botones
+- cuando le este dando estilos a cualquier elemento y quiera modificar dos estados de ese elemento a la vez, 
+  puedo hacerlo colocando una coma y copiando el segundo estado. EJM:
+  a:link, a:visited{
+     color:#560bad;
+  }
+* esto afectara elcolor del elemento "a" tanto cuandono se le ha dado click, como cuando ya se le ha dado click
+
+# ruta absolutas y relativas
+
+ruta absoluta :
+localHost + puerto + nombre del archivos
+ejm: http://localhost:5500/contenido.html
+
+ruta relativa:
+nombre del archivo
+ejm: /contenido.html
+
+OJO: es recomendable utilizar para trabajar con links rutas relativas, porque los puertos y el localhost 
+pueden cambiar y si son archivos que se encuentran dentro de la misma app (razones de seguridad). son 
+recomendadas si son links que nos llevan a otras paginas
+
+a veces el www no es requerido cuando trabajas con rutaas absolutas.
+ejm:
+ http://globalmentoring.com.mx 
+
+# niveles en rutas absolutas
+1. cuando la el archivo está al mismo nivel: solo nobre del archivo (contenido.html)
+2. cuando el archivo esta dentro de una carpeta que esta al mismo nivel de nuestro index: 
+   nombre de la carpeta/nombre del archivo (web/contenido.html)
+3. si la organizacion es mas complicada en terminos de niveles: /nombre de la carpeta/ nombre del archivo (/web/contenido.html)
+   (es lo recomendable)
+
+OJO: el "/" antes de el nombre de la carpeta nos lleva a la carpeta madre del proyecto (leccion05) y de ahi se halla la carpeta 
+     web/contenido.html. a esto se le conoce como context root
+
+# Elementos superpuestos entre si en Css
+
+ con el atributo de display: inline-block; los elementos html toman un espacio de bloque en una misma columna 
+
+#  Tablas
+tr= table row
+   th= table head
+   td= table data
+
+- los td vienen alineados a la izquierda por defecto
+- los th vienen centrados por defecto
+
+- con el atributo border-collapse: collapse; hago que las lineas del borde de la tabla se unifiquen, porq cuando las agrego en css aparecen 
+  dobles. 
+
+ # border-spacing / colspan / rowspan atributos:
+
+* si quiero mantener mi borde doble y quiero agregarle un espacio entre las lineasde mi borde, con border-spacing: 5px;
+* si quiero que mi celda de head ocupe dos columnas (la de nombre por ejemplo / leccion06) con el atributo html "colspan="2" en el elemento th
+* si quiero que mi celda de head ocupe dos filas (la del correo por ejemplo / leccion06) con el atributo html "rowspan="2" en el elemento tr
+
+ # estilos CSS en tablas HTML
+
+ 1. si quiero agregar un titulo a mi tabla: con la etiqueta  <caption> despues de la de <table>
+ 2. line-height: para agregar padding entre la linea superior e inferior de un texto
+ 3. tr:nth-child(even) para modificar las filas pero solos las pares (con odd en vez de even, modifico las impares)
+   - nth-child() es una funcion (propieddad css)
+
+# Listas
+* Ul/OL/Dl
+
+UL: con "list-style-type: circle o square;"cambio el estilo de los simbolos de circulos, cuadrados, discos, etc
+
+# navbar con listas html y css
+1. crear un Ul con los li dentro. Tambien dentro de los li creamos elementos a para trabajar con links en el navbar
+
+* elemento UL
+- le saco el list-style-type al Ul los simbolos a la izquierda, 
+- le doy un background-color
+- le  agrego una propiedad llamada overflow:hidden 
+  todo esto para que los elementos que esten flotando debajo y arriba se mantengan en su sitio y no se queden en la misma linea de mi UL
+- le quito el margin y el padding
+
+* elemetos li
+- le agrego la propiedad float:left; al elemento li
+
+* elementos li a
+- les saco el text-decoration. li a{text-decoration: none;}
+- les doy la propiedad display:block; para que se manejen como un bloque y en el caso de que quiera agregar le una propiedad la tome en todo
+  el bloque en conjunto
+- le doy color al texto
+- lo alineo al centro con text-align:center;
+- le doy padding: 15px;
+
+# Listas Ordenadas
+
+- con el atributo type dentro del elemento <ol> van a ver varios tipos desimbolos de orden (numericos y alfabeticos-romanos) en mayusculas ya
+  minusculas por default aparece el (1, 2, 3)
+- podemos con css modificar lo que se muestra antes de los simbolos de orden con el selector (::) despues del elemento que quiero modificar y la 
+  propiedad content, en ellla hay muchas opciones de contenidos que puedo utilizar, entre ellas un string('curso')
+  ol li: before{content: 'curso'} 
+  * asi aparecera "curso Universidad Java", por ejemplo
+
+- si quiero que aparezcan los numeros y vayan aumentando a medida que se van agregando cursos, utilizo una  funcion llamada counter, segudo 
+  de parentesis y el nombre del counter
+   ol li: before{content: 'curso' counter(contador)}
+
+- dentro de mi ol debo especificar que se va a utilizar la funcion. esto se hace con el atributo counter-reset más el nombre de la variable
+  (contador).
+   counter-reset:contador;
+   * con el reset, se resetea una vez utilizado, la variable contador
+
+- en los elementos ol li, es donde vamos a incrementar con la funcion y especificamos que se va a incrementar con el atributo counter-incrementar
+  ol li {counter-increment: contador}
+
+# listas de descripcion
+- se trabajan como un diccionario un termino <dt> (description term)  y su valor <dd> (description data)
+
+# Elementos inline y block
+
+- inline: pueden modicicar a otros elementos, pero dentro de la misma linea
+<span>
+<strong>
+<em>
+
+
+- block: modifican elementos en todas las lineas y abarcan todo el espacio, tanto de derecha como de izquierda
+<div>
+<article>
+<quote>
+<code>
+
+# atributo class: usado mayormente, para aplicar estilos a elementos en bloque por separado.
+* en css se denota con el punto (.), seguido del nombre de la clase ejm: .tarjeta{}
+
+OJO: siempre es recomendable quitar el margin y el padding a todos los elementos y luego agregarle a los que vayamos necesitando.
+     como estamos trabajando con css, osea en cascada, segun vayamos agregando elementos y sus propiedades debajo, estos elementos
+     se van a ir modificando. superponiendose a las propiedades seteadas en la parte superior 
+     en css le quitamos el margin y el padin a todos los elementos del body así: 
+     *{
+        padding:0;
+        margin:0; 
+     } 
+   - el asterisco (*) denota que trabajamos con todos los elemntos dentro del body 
+
+OJO: yo pueddo darle varias clases a un mismo elemento html
+
+- cuando al inspeccionar la pagina me aparezca tachado algun tributo css es porque otro atributo esta siendo tomado, en vez del tachado. es 
+  decir lo sobre escribe proque es un elemento mas interno. todo esto por el principio del lenguaje de cascada. 
+
+# Marcadores Bookmarks en Html:
+
+- sirven como links dentro de una misma pagina. para redirigir 
+- se trbajan con elementos <a href=""> con el numeral(#) o asterisco(*)  si es un id o una clase, respectivamente, mas sus nombres (id o class).
+- ademas de redirigir a la clase o el id, en la url se agrega la clase o el id al que se redirigió
+
+
+# Iframes:
+- son marcos o espacios en donde se pueden cargar videos,parginas web, canales de videos, imagenes, documentaciones, ect
+-los podemos agregar desde unelemento iframe o desde una coneccion con un elemento <a>, es decir un link 
+   * para esto se deben hacer varrios pasos:
+     1. proporcionar un nombre al iframe name="marco1"
+     2. proporcionar un target al link <a> target="marco1" para que lo vincule con el name del iframe, y cuando se le dé click al link, 
+        redireccione dentro del iframe la url del link href"https://globalmentoring.com.mx"
+
+# Formularios en Html
+
+1. elementos de tipo input : para capturar informacion del usuario
+   - con el atributo type="" indico que tipo de input trabajaré (text, date, button, datetime, checkbox, email, image, number...)
+      * si es un button para enviar info al servidor, se trabaja con el tipo 'submit'
+      * con el atributo de value="enviar" le damos un nombre al boton submit (tambien lo trae por defecto el nombre)
+         OJO: tambien en los inputs te ingresa por defecto un dato (nombre, apellido, password, etc) dentro del input
+   - id="nombre del input" siempre recomendable como atributo del tag
+   - name=" nombre" si queremos que aparezca en la url de la pag los datos ingresados se utiliza este atributo
+   - placeholder="texto de referencia del input" texto que indica que dato ingresar dentro del input
+      * para que se vea en el input, debe eliminar el atributo value con el nombre y apellido por defecto
+
+
+2. label: son etiquetas que especifican el motivo del input y le indican al usuario que tipo de dato se debe ingresar en el input
+   - con el atributo for="id del input", asociamos el label con el id del input
+   - al dar click en el label asociado, se acctiva para escribir dentro del input asociado
+
+
+   # Validar formularios en Html
+      * validar es comprobar que los datos ingresados al form fueron ingresados correctamente y así poderlos enviar al servidor
+   1. required="true" atributo para que no valide hasta que el input contenga los datos (y el tipo de dato tambien) solicitados al usuario
+
+   2. si por el contrario no quiero que ningun input del form sea validado, dentro del tag form copio el atributo 'novalidate'
+   3. si quiero tener otro input  para  enviar sin validar, creando el el boton de tipo submit y agregandole el atributo 
+      formnovalidate="formnovalidate"
+
+   # Metodo GET y Metodo POST en Html
+      * cuando trabajamos con validacion en la url del sitedespues del signo de interrogacion encontramos los parametros que son enviados
+      al servidor (query string), pero a veces la informacion enviada es sensible (passwords y datos bancarios por ejemplo). En estos
+      casos se debe cambiar de metodo de envio de datos al servidor.
+   1. metodo GET: por default el metodo para enviar la info al servidor. Es el  metodo menos seguro, muestra la info por la Url
+      - este es un metodo http. debido a que utilizamos un protocolo http se envia como parte de la URL como query string al servidor
+
+   2. metodo POST: mas seguro, no muestra la info por la url. se envia por el cuerpo del mensaje  http (Http request) al servidor
+      1. se agrega en el tag form como atributo
+      2. para confirmar si se envó al servidor puedo darle a inspeccionar/network/record network log (logo circular) 
+         - click en el logo, para comenzar a grabar el request
+         - llenar el form y darle a submit y se ve que se tiene la peticion con el name (index.html)
+         - si le damos click a la peticion (lado inferior izquierdo), en los Headers (parte inferior derecha) vemos el request url y el 
+         metodo utilizado (POST), el status code  (405 method not allowed / no server), remote adress(localhost+ puerto)
+
+3. input type ="email":
+   - cuando se envia por metodo GET los caracteres especiales (@) tienen una codificacion particular (HTML URL Encoding), un juego de 
+     caracteres con el que estamos trabajando (meta utf8) el de @ seria " %40 ". el espacio seria un "+", la coma seria "%2c",
+     los dos puntos srian "%3A", el simbolo de admiracion seria "%21"
+
+4. input type="number": 
+   - para la edad, calificacion,... 
+   - no captura cadena de caracteres (no lo permite)
+   - el navegador reconoce que son de tipo numerico y da la opcionde aumentarlos dando click hacia arriba o hacia abajo
+   - podemos restringir el valor minimo y maximo del input
+   - step="any": atributo para que acepte decimales tambien
+
+5. input type="radio":
+   -para  elegir una entre varias opciones, dando click en un checkmark
+      * el for del label se asocia con el id del input
+   - para que la seleccion (en el caso del genero) sea de  una de las dos opciones, el atributo name debe tener el mismo nombre en ambas 
+     En vez de femenino/masculino  >>>  genero
+   - aca el valor que se envia por la url lo toma de value
+
+6. input type="checkbox"
+   - permite elegir una o mas opciones entre un grupo de opciones 
+   - el name debe ser el mismo en todos los inputs
+   - el valor es lo que se va a enviar por el servidor
+   - cuando se procese en javascript se trabajan como un array (una variable con multiples valores)
+
+7. select
+   - despliega una lista de opciones para elegir una. 
+     OJO: en el tag select, con el atributo multiple="true" puedo elegir varias
+   - trabaja con el tag option para elegirla opcion que mas guste
+   - al servidor va lo que esté dentro del tag option, en del atributo value, puede ser un numero, string,..
+   - para elegir una por default con el atributo selected="true" dentro del tag option
+   - cuando se procese en javascript se trabajan como un array (una variable con multiples valores)
+8. textarea
+   - cuando se necesite introducir muchos caracteres
+   - se debe especificar cuantos rows y cols tendrá de capacidad el textarea (rows="10" cols="30" por ejemplo)
+   - cualquier texto que introduzcamos entre la etiqueta de apertura y la de cierre se va a ver en el text area
+   - el comentario es enviado al servidor en forma codificada (ver URL de la pagina)
+9. fieldset
+   - para darle marco al formulario
+   - inicia justo despues del elemento form y termina justo antes del cierre del form
+
+10. legend
+   - para darle titulo al formulario
+   - dentro del fieldset
+
+11. input type="reset"
+   - para borrar los datos ingresados en el formulario
+
+
+   * readonly ="true"
+     - Existe un atributo usado en los input (text mayormente) para enviar datos al servidor, que no puede ser llenado por el usuario.
+     - son atributos que convierten al input en un elemento de tipo lectura
+
+   * disabled ="true"
+      - para que desabilite el input que sea solo de lectura y el usuario no le pueda dar click
+      - cuando se desabilita un campo. la info no se envia como query parameter al servidor
+
+12. input type="hidden"
+   - para enviar elementos de tipo oculto
+   - un valor oclto que se va a enviar al servidor y recibir del lado del servidor
+   -SAP (sistema de administracion de personas)
+
+# Atributos del elemento form
+
+1. Action 
+   - una vez terminado el formulario necesitamos indicarle al servidor la url que va a procesar es formulario. para esto sirve Action
+   - la url va a aparecer despues de la ip (127.0.0.1) y del puerto(5500) OJO: pueden ser otros
+   - despues de la url va el query parameter
+2. POST
+   - podemos tambien especificar el metodo en el que se va a enviar la  info del formulario (POST/GET)
+3. Target
+   - podemos indicarle al navegador que la respuesta se cargue en la misma ventana o en una distinta ("_self " o "_blank")
+4. Autocomplete
+   - si queremos que el campo que estemos llenando se vaya autocompletando (autocomplete ="on"), si no (autocomplete= "off")
+
+# Formulario estilizados en Css
+1. se le quita el padding y el margin al body
+2. se puede agregar un background con colores, imagenes y gradientes
+   - gradientes: degradacion de dos colores el 1ero como comienza, 2do como se degrada ( a donde termina). se produce de arriva a abajo
+      background:linear-gradient(color1, color2);
+3. margin de 50px arriba y abajo y auto para que se centre automaticamente
+4. para ver que se centra el form, agregamos un width de 400px y un paddingde 400px
+5. un background que va a tener transparencia (por eso con rgba(0,0,0,.5)) el .5 de transparencia para que tome el background del body 
+   en un tono poco más oscuro
+6. border-radius: 10px; para redondear las esquinas
+7. para el .contenedor .elemento input{ background: transparent} así toma la transparencia
+8. border-bottom de 1px solid #fff, ´para que solo quede la linae blanca en la parte inferior
+9. .contenedor .elemento input[type="submit"] con las corchetes [] puedo hacer uso de los atributos del elemento con el que estoy
+   trabajando
+10. letter-spacing:5px; le damos separacion entre letras
+11. con text-transform: uppercase; para pasar el texto a mayuscula
+12. con la propiedad cursor: pointer; el cursor cambia al colocarlo sobre el input
+
+
+# Elementos semanticos 
+mejoran la busqueda del navegador
+
+- header
+- section
+- article
+- navbar
+- aside
+- footer
+
+* box-shadow : para agregar una sombra sobre los elemntos html
+              a   b     c   d
+- box-shadow: 1px 0px  4px rgb(1, 1, 1)
+
+a.) 1 pixel para el eje X
+b.) 0 pixeles para el eje y
+c.) 4 pixeles para  el valor de blur (sombra)
+- blur: difuminar
+- spread: propagar
+d.) un rgba(0,0,0, .2) color de la sombra (negro), pero con 20% (.2)de transparencia
+
+* box-shadow: inset; paraque se coloque la sombra desde adentro
+* clear: both; para que los elementos que estén colgados se separen y queden cada uno en su linea
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

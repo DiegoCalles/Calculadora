@@ -1,0 +1,46 @@
+
+body{
+   max-width: 700px;
+}
+h1{
+    text-align: center;
+    color: #e63946;
+}
+.caja{
+    padding: 10px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    margin: 5px auto;
+    font-size: 10px;
+    float: left;
+    margin-right: 30px;
+}
+.rojo{
+    background-color: crimson;
+    
+
+}
+.pinka{
+    background-color: LightCoral;
+}
+.rosa{
+    background-color: #ff1493;
+}
+.hexa-transparencia{
+    background-color: #eb5ff8b0;
+}
+
+.salmon{
+background-color:rgb(250, 128, 114);
+}
+.rgba{
+    background-color:  rgba(131, 56, 236, .5);
+}
+.hsl{
+    background-color: hsl(209, 73%, 48%);
+}
+.hsla{
+    background-color: hsla(212, 100%, 50%, 0.719);
+}

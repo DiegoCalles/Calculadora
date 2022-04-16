@@ -1,0 +1,21 @@
+*{
+    background-color: rgb(221, 48, 77);
+}
+#titulo{
+    color: rgba(228, 178, 190, 0.562) !important;
+    font-size: 45px !important;
+  }
+p.centrar{
+    text-align: center;
+    color: azure;
+
+
+}
+.texto-grande{
+    font-size: 66px;
+    text-align: right;
+}
+h1, p{
+    text-align: right;
+
+}

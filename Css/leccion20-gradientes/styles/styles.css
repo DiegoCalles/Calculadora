@@ -1,0 +1,29 @@
+html{
+    height: auto;
+    min-height: 100%;
+}
+body{
+    /* background: linear-gradient(#f72585, #3a0ca3); */
+    /* background: linear-gradient(to left,#f72585, #3a0ca3); */
+    /* background: linear-gradient(#24404d, #6dbff1,#7837da, #000); */
+    /* background: linear-gradient(to bottom right,#f72585, #3a0ca3); */
+    /* background: linear-gradient(190deg,#f72585, #3a0ca3 ); */
+    /* background: radial-gradient(#f72585, #3a0ca3); */
+    background: radial-gradient(circle, #f72585, #3a0ca3);
+}
+h1, p{
+    text-align: center;
+    color: rgb(245, 239, 240);
+    
+}
+
+div.contenedor{
+    width: 30%;
+    height: 20%;
+    margin: auto;
+    border: 3px solid #a8dadc;
+    padding: 15px;
+    text-align: center;
+    background-repeat: no-repeat;
+    
+}

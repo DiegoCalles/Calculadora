@@ -1,0 +1,87 @@
+html{
+    height: 100%;
+}
+
+
+body{
+    margin: 0%;
+    padding: 0%;
+    background: #000;
+
+}
+.contenedor{
+    width: 400px;
+    
+    margin-left: 600px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.contenedor .header{
+    color: #fff;
+    text-align: left;
+    padding-left: 15px;
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 13px;
+}
+.contenedor .logo{
+    width: 80px;
+    background: #000;
+    margin-bottom: 15px;
+    padding: 0%;
+    margin-top: 0%;
+}
+.contenedor .elemento input{
+    width: 90%;
+    height: 25px;
+    padding: 10px 5px;
+    margin: 18px 15px 20px;
+    border-radius: 5px;
+    font-family: Avenir-Roman,sans-serif;
+    border: none;
+
+}
+.contenedor .elemento input[type="text"]{
+    background-color: rgb(34, 34, 34);
+    padding: 15px;
+    border: none;
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 15px;
+
+}
+.contenedor .elemento input[type="submit"]{
+    width: 98%;
+    padding:25px;
+    line-height: 0%;
+    font-family: Avenir-Roman,sans-serif;
+    text-transform: uppercase;
+    background-color: rgb(44, 75, 161);
+    color: #fff;
+    font-size: 17px;
+    font-weight:600;
+
+}
+.contenedor .elemento input[type="submit"]:hover{
+    background-color: rgb(26, 118, 224);
+    transition: all 300ms;
+}
+
+.contenedor .su{
+    color: rgb(150, 145, 145);
+    padding: 15px;
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 13px;
+
+}
+
+.contenedor .su a{
+    color: rgb(150, 145, 145);
+    font-family: Avenir-Roman,sans-serif;
+    text-decoration: none;
+}
+.contenedor .su a:hover{
+    color: rgb(57, 172, 238);
+    font-family: Avenir-Roman,sans-serif;
+    text-decoration:underline;
+    transition: all 300ms;
+}
+

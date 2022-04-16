@@ -1,0 +1,28 @@
+h1, p{
+    text-align: center;
+    color: #457b9d;
+}
+
+div.contenedor{
+    max-width: 30%;
+    height: 20%;
+    margin: auto;
+    border: 3px solid #a8dadc;
+    text-align: center;
+    color: #457b9d;
+    padding: 15px;
+    
+}
+
+div.contenedor img{
+   
+  position: relative;
+   
+   
+    
+   
+}
+
+div.contenedor img:hover{
+    opacity: .5;
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Roboto+Slab:wght@100;500&family=Sofia&display=swap');
+h1{
+    text-align: center;
+    color: #457b9d;
+}
+div.contenedor{
+    width: 80%;
+    height: 20%;
+    margin: auto;
+    overflow: auto;
+    border: 3px dashed #a8dadc;
+}
+ul.menu{
+    list-style: none;
+    text-align: center;
+    
+}
+ul.menu li{
+    display: inline-block;
+    background-color: #457b9d;
+    padding: 10px;
+    border-radius: 10px 4px 10px 4px;
+    margin: 20px;
+    box-shadow: 3px 1px 3px rgba(115, 126, 189, 0.5);
+}
+ul.menu li a{
+    text-decoration: none;
+    font:bolder small-caps 20px 'Grape Nuts', cursive ;
+    color: #a8dadc;
+}
+span{
+    font:italic bolder 20px 'Courier New', Courier, monospace;
+    background-color: #a8dadc;
+    border: 1px solid #457b9d;
+    height: 50px;
+    padding: 5px;
+    display: inline-block;
+}

@@ -1,0 +1,572 @@
+# formas de aplicar css a mi documento html
+
+1. inline: dentro del elemneto html
+
+
+- <p style="color: blue; font-zise: 15px;"> hola</p>
+
+color= atributo
+blue = valor del atributo
+
+2. internal Css: dentro del head con el elemento (etiqueta) html "style". dentro de la misma los selectores (id, class, *, elemento html) 
+   con sus atributos y valores respectivos.
+
+<style>
+h1{
+    color: blue;
+    font-zise: 15px;
+}
+
+</style>
+
+OJO: los estilos tipo inline van a tener prioridad de lectura en el navegador por sobre los internal y los external. 
+     Este sería el orden: inline >>> internal >>> external >>>> web browser
+
+     pero si escribo  "!important" dentro del los valores del atributo, no importa a que nivel esté (si es external), me va a dar
+
+external: desde otro archivo .css  con el elemento html <link> desde el head
+     h1{
+        color: blue !important;
+        font-zise: 15px;
+      }
+
+# Selector ID:
+para elementos html que sean unicos, es decir que no se repitan. en el archivo css se denota con el numeral (#) + el nombre del selector
+
+<h1 id="titulo">
+
+OJO: si queremos que complete el texto (titulo en el id) del id en css desde html descargar una extencion (html css support)y para las clases
+(intellisense for css class names in html)
+extension css peek: Allow peeking to css ID and class strings as definitions from html files to respective CSS. Allows peek and go to 
+definition
+
+Selector Class: para varios elementos
+
+- se denota con el punto seguido del nombre de la clase (.nombre_clase{})
+- en el elemento html pueden haber varias clases <p class="clase1 clase2">elemento html</p>
+
+#selector universal css(*):
+*{
+    background:#fff;
+}
+
+# agrupar selectores:
+con una coma
+
+h1, h2, p{
+    color:crimson;
+}
+
+#subclases:
+se aplican a los elementos html que tienen una clase definida, sin importar que haya muchos elementos
+
+p .centar{
+    color: white;
+}
+
+# Colores en Css
+Existen 140 colores definidos en Css. en site htmlcolorcodes.com, en la sección  name, podes ver todos
+
+
+# Bordes en Css: se pueden utilizar en todos los elementos de bloque
+- primero el ancho de la linea, segundo el aspecto (solid, dotted, dashed, groove, double,ridge, inset, outset) y tercero el color
+
+* Tipos: 
+
+.punteado{
+    border-style: dotted;
+}
+.discontinuo{
+    border-style:dashed;
+}
+
+.doble{
+    border: 5px double rgba(1, 5, 12, 0.788);
+}
+.solid{
+    border: 2px solid rgb(48, 38, 38);
+}
+.surco{
+    border: 10px groove;
+    
+}
+.cresta{
+    border: 10px ridge;
+}
+.recuadro{
+    border: 10px inset;
+}
+
+.inverso{
+    border: 10px outset;
+}
+.sin_borde{
+    border: none;
+}
+.oculto{
+    border: hidden;
+}
+
+OJO: para trabajar con mixto, utilizamos la propiedad de border-style y agregamos los estilos a cada lado que deseemos
+
+.mixto{
+    border-style: dotted dashed double ridge;
+}
+
+# Ancho de Bordes: para especificar el ancho  del borde en cada lado de mi elemento html 
+
+
+               A   B    C    D
+border-width; 5px 10px 15px 20px;
+
+A: superior
+B: Derecho
+C: Inferior
+D: Izquierdo
+
+- Con A,B,C se aplicarian los bordes así: A superior, B Izquierdo y Derecho, C Inferior
+- lo mismo con los colores
+
+- Para trabajar sin px se puedenutilizar medidas pre-establecidas (thin, medium, thick)
+
+# BOX MODEL:
+en todo elemento de bloque html exixten una composicion o estructura general, que va desde lo interno a lo externo:
+1. content: contenido del elemento
+2. padding: espacio que va despues del content. Entre el content y el border.
+3. Border: espacio que va despues del padding. Limite del elemento html
+4. Margin: el espacio entre dos elementos html
+
+- se modifican sus valores en orden de: superior, derecha, Inferior, Izquierda 
+- para crear un elemento html debemos considerar las medidas de estos componentes(1,2,3,4)
+- para conocer el tamaño ( el ancho y alto) de nuestro elemento, debemos sumar el tamaño del elemento, el padding, el borde y el margin del 
+  mismo.
+
+1. Outline en Css:
+Elemento que se encuentra entre el borde y el margin
+
+- no se toma en cuenta el ancho del Outline para calcular el tamaño final del elemento html.
+- se le trabaja con tamaño, aspecto y color (al igual que el borde)
+    Outline: 2px solid #fff;
+- si lo hacemos mas grande que el margin de nuestro elemento html  se superpone  a otro elemento html
+
+2. Outline-offset:
+separacion entre el borde y el Outline
+- solo aplica un tamaño para todos los lados del mismo
+- no se puede asignarle color
+
+3. padding. ..
+
+4. box-sizing:
+para conocer el tamaño ( el ancho y alto) de nuestro elemento, debemos sumar el tamaño del elemento, el padding, el borde y el margin del 
+  mismo.
+- box-sizing: border-box; con esta propiedad hago que el tamaño final sea el el agregado con el atributo width. si hay un padding, y un 
+  border, los disminuye para que el tamaño final se mantenga en el expresado en el width
+  OJO: los divs por defecto vienen con un margin y un padding. para eliminarlos necesito hacerlo desde el selector universal
+
+5. max-width y max-height:
+    para ajustar un maximo tamaño, tanto en altura y en lo ancho. sirve para que sea responsivo si la pantalla es mas pequeña, es decir, que 
+    el diseño se vaya ajustando mientras el dispositivo es mas pequeño.
+- de esta forma no saldrá la barra de scroll de abajo
+
+6. margin:auto;
+para centrar elementos
+
+- si se agrega primero el valor de cero (0) y despues el de auto, el primer valor tomará para el top y el bottom y el auto para los lados
+- esto en elementos inline. con los blocks tiene otra respuesta
+
+7. inherit: 
+para heredar valores de otros elementos, con otras clases, dentro de un mismo div
+
+8. margin collapse:
+   cuando  trabajamos con mas de una caja (div) el comportamiento del margin-top y margin-bottom puede no ser el esperado. los margenes se 
+   fusionan y toman solo el margen del elemento con el mayor valor. es decir, los margenes no se suman
+
+# Colores en Css.
+-podemos trabajar con  distintos tipos de colores:
+1. hexadecimal (#ffffff): se compone de tres pares de digitosva de 0 a 9 y de  A a f. siendo 0 lo negro y f lo blanco
+ el primer par corresponde al color rojo, el segundo al verde y el tercero al azul
+2. rgb
+3. rgba
+4. HSL (hue Saturation Lightness)
+5. por nombre del color
+
+OJO: todos con la transparencia tambien
+
+con el atributo float: left, los elemento van a ir colocandose de Izquierdaa derecha hasta que no haya mas espacio y comiencen de nuevo en 
+la columna de abajo  
+
+# Manejo de Fondos en Css:
+
+- background-image: url("/Css/leccion06-manejo-fondos/media/img/fondo.png") monto mi imagen como background en la pagina 
+  web.
+- background-repeat:no-repeat ; para que la imagen no se repita 
+
+tiene varias opciones:
+    1. repeat-x: solo horizontalmente se repite
+    2. repeat-y: verticalmente
+    3. no-repeat: no se repite
+    4. muchas más
+
+- background-position: top right;  posiciona la img de background en la parte superior derecha
+
+- background-attachment:scroll; para que la imagende fondo se mueva con el scroll.
+    1. fixed; para que no se mueva ...
+    scroll viene por defecto
+
+- con la propiedad background(solamente) podemos simplificar las demas, salvo background-attachment
+ejem: background: #f23 url("/media/img/fondo.png") no-repeat top;
+
+# Formato de texto:
+va desde el espacio entre letras, entre lineas, fuente, color de fuente, alinearlo, justificarlo
+
+-text-transform: uppercase/capitalize/lowercase/initial
+
+-text-shadow: 2px 2px 2px #cde4da; 
+    * el primer valor eje x, 2do eje y, 3er valor el blur (difuminacion), y el 4to es un color 
+
+-letter-spacing: 3px; espacio entre las letras
+
+- text-align: justify;
+
+- direction:ltr; para indicar en que direccion va el texto (ltr= left to right). podria ser rtl (right to left)
+
+- text-decoration: none, underline, line-through(tachado), overline(linea sobre el texto)
+
+- text-indent:30px: para indentar (margen al comienzo del párrafo)
+
+- line-height:1.2; para separar lineas de texto (1.2 es la medida de la mayoria de los navegadores) no se especifica la medida en px, cm ,%, 
+porque es un valor proporcional al tamaño de la fuente
+
+- white-space: nowrap; (nowrap) para que no respete el background y continue fuera del él. con el valor (normal) si lo respeta
+
+# fuentes en CSS:
+- font-falily:'times New Roman' times serif; 
+1. cuando hay espacio en el valor de la fuen te  se usa comillas
+2. serif: las puntas redondeadas, más formal
+3. san serif: menos formal, sin puntas redondeadas
+4. monospace: simula la escritura de la maquina de escribir
+5. cursiva: simula la letra tipo carta 
+
+    # font-styles:cambian nuestro font-family segun la elección de estilo que se tenga
+    - italic
+    - normal
+    - oblique: parecido al cursive(italic)
+    - initial
+    - unset
+    
+    # font-weight: van desde 100 a 900 en valores de grosor recomendados.
+    - bold
+    - bolder
+    - lighter
+    - normal
+    - initial
+    -inherit (heredado de otra clase o elemento del mismo div)
+
+    # font-variant: para dar otros estilos a las fuentes
+    - small-caps: valor para colocar el texto en mayusculas, pero la primera letra con un mayor tamaño 
+
+    # font-size: para dar mayor o menor tamaño a la fuente. responden al zoom que se haga a la pantalla. el valor por default es 16px
+    - small
+    - smaller
+    - large
+    - larger 
+    - medium
+    - x-large
+    - xx-large
+    - x-small
+    - xx-small
+    - 1em: unidad de medida que es igual a 16px
+    - (valor numerico)vmax: hace que el tamaño de la fuente varie dependiendo del tamaño del dispositivo. (responsivo)
+        ejm: font-size:3vmax; es el maximo tamaño que va a tener
+    - vmin: valor responsivo minimo
+    - vh: varia la altura  ejm: font-size:3vh;
+    - vw: varia lo ancho
+
+    # Google fonts: hay dos formas: 1. con el link en el archivo Html. 2. con un import desde el archivo Css:
+    1. ubico la fuente
+    2. la selecciono
+    3. click en import para copiar el import al archivo css, quitandole la etiqueta style
+    4. le doy scroll y ubico el font-family y lo pego en elemento html de mi archivo CSS con el que esta relacionado
+
+OJO: para trabajar con todas las propiedases del font sin necesidad de especificarlas, debo escribir font y seguir el siguiente orden:
+
+font: font-style font-variant font-weight font-size/font-height font-family;
+
+# iconos Bootstrap:
+
+- en la pagina van a haber muchos, a los que se les puede cambiar el tamaño y color
+- tambien va a estar el link para instalarlo. En la opcion CDN (Content Delivery Network), que provee un  link publico
+- click en el icono de la carpeta al lado derecho  para copiar el link en el head del index o puedo hacerlo con el de import en css
+
+para trabajar con los Iconos:
+1. con un tag "i", de icono, dentro de un "p", que a su vez esta dentro de un div
+2. creo la clase y me como nombre estan el prefijo bi (Bootstrap icon) seguido del tipo de icono (aparecen muchos guardados)
+3. luego darle el titulo 
+4. en la web site le das click al icono que desees y te aparece la clase y el nombre  como valor
+5. desde css puedo modificar su tamaño y color, entre otros..
+6. con el vertical-align: bottom; lo alineo con el texto
+
+# Google icons fonts:
+1. ir a la parte de developers guide y copiar el link en el head de l archivo html
+2. el nombre del icono no se va a escribrir como valor de la clase como en los de Bootstrap. acá se va a escribir en medio dela etiqueta
+   apertura y la de cierre
+
+# Iconos de Ionic CSS (ionicons.com):
+1. dar click en usage
+2. copiar el script
+3. pegarlo al final del body
+4. buscar el icono deseado y darle click. se copiara el nombre automaticamente
+5. va a generear un nuevo elemento html que se pega dentro del div y el p
+
+
+# Propiedad Display en CSS
+- los elementos de tipo block en Html (div, p, H1, article, ul,li) ocupan toda la linea en la que estén dentro de la pagina. por eso existen
+  varios valores con los que se pueden modificar el display de estos elementos de  tipo block.
+
+1. display:block; es como vienen por defecto, en lineas distintas
+2. display: inline; en la misma linea
+3. display:none; para ocultar elementos, pero al hacerlo lo demás elementos ocupan su espacio. con la propiedad Visibility:hidden; se 
+   oculta el elemento, pero los demas elementos no ocupan su espacio en la pagina.
+
+
+- los elementos inline: tienen por default display:inline, algunos son: <a>, <span>, <img>
+
+
+# posicionamiento en CSS
+
+    # Centrar elemntos de tipo Div
+
+    1. lo primero es darle un tamaño al div (preferiblemente en procentaje %)
+    2. un borde para tener referencia del tamaño
+    3. un margin:auto; para que el espacio de la derecha e Izquierda en la pag sea el mismo y por lo tanto se centre el elemento
+       * cuando trabajas con procentaje, el tamaño del elemento se ajusta al tamañode la pantalla (dispositivo)
+       * el mismo efecto ocurre con la propiedad max-length: 400px; el tamaño maximo seria 400. si es menor, se encoge pero el margin
+         no se aplica al reducir la pantalla. al combinarlos, se encoge y se respeta el margen (max-width:50%;)
+    
+
+    # Posicionamiento Estático en Css:
+
+    - se trabaja  con la propiedad position, que por defecto viene con el valor de static. no permite modificar los atributos top, 
+      left, bottom y right
+    
+    # Posicionamiento Relativo:
+
+    - aca se va a mover al top, bottom, left, right dependiendo de la posición en la que ya esté al comienzo. 
+    - si le doy valores al top (top:50px;) se va a alejar 50px de la parte de arriba (partiendo de la posicion que ya tiene), porque
+      le estamos agregando 50px en la parte de arriba
+    - si creamos mas elementos, estos se irán agregando en la parte de abajo segun su orden y no tomaran el posicionamiento Relativo
+      y el espacion del div queda reservado en el viewport
+
+    # Posicionamiento Fixed (Ajustado):
+
+    -  acá no se reserva la posicion del div y queda ajustado a la posicion del top, right, left, bottom, incluso por sobre los demas
+        elementos.
+    - si el tamaño del height del body es tan grande para hacer scroll, y al hacerlo, div quedara ajustado a la posicion que se le dió
+    - sirve para menus de navegacion ajustados o fijos y para elementos como chats para que siempre aparezcan ajustados en x posicion 
+      en la  pagina
+
+    # Posicionamiento absolute:
+    
+    - Acá el elemento está dentro de un div y tomará una posicion absoluta (se quedan atrás cuando se hace scroll) dentro de ese div. 
+      si no hay div, toma la del body. 
+
+    # Posicionamiento Sticky:
+    - funciona como el fixed, pero se le dan valores top, left, right, bottom como punto de anclaje y una vez se haga el scroll y se 
+      llegue a ese punto (el configurado con left, top, right, bottom), quedara ajustado (fixed) en ese punto. es decir, que funciona
+      como un elemento posicionado de tipo relativo cuando no se llega a su posicion haciendo scroll, y como un fixed cuando haciendo
+      scroll se pasa su posicion
+
+    - si hay otros elementos (divs), va a respetar el orden en el que fueron colocados en el documento html
+    - si trabajamos con browser como safari la propiedad  position: -webkit-sticky;
+    - con internet explorer no funciona
+
+    # propiedad z-index en css:
+    - determina el orden en el eje z (tercera dimencion) en que sa van a ir superponiendo los elementos segun coincidan en la misma 
+      posicion. 
+    - si hay elementos no posicionados (position: static;), estos van a tener un valor de z-index:auto; esto quiere decir que los
+      valores sevan a ir agregando automaticamente.
+    - los posicionados (diferentes a position: static;) estos van a estar encima de los no posicionados.
+    - segun el orden en que se van colocando, se van a ir superponiendo (el ultimo es el que se va a superponer del resto). a menos
+      que se modifiquen los valores del z-index. es ese caso, varian dependiendo del valor. el mayor se superpone
+
+# Overflow en Css: cuandola altura (height) del contenido se sale del contenedor
+- cuando tenemos un elemento de tipo div y dentro de él otros elementos (img, p, etc), estos pueden ser mas grandes que el 
+  div (contenedor). aca se trabaja con la propiedad Overflow.
+  1. overflow: visible; el valor por defecto. muestra lo que se sale del contenedor
+  2. overflow:hidden; lo que se sale del contenedor se oculta
+  3. overflow:scroll; para que se vea parte del contenido y lo que no, con un scroll se vaya viendo
+  4. overflow:auto; se agregan las barras de scroll necesarias, de manera automatica
+  5. overflow-x/y: con los mismos valores (auto, visible, hidden, scroll)
+
+# Propiedad float: para colocar elementos de bloque de manera flotada,  a lo ancho del contenedor
+- se van agregando elementos hasta que se llene el contenedor y si se necesita agregar más, se continua en la proxima linea
+- para terminar de agregar, se trabaja con el valor clear
+  1. float:none; es el valor por defecto
+  2. float:left; a la Izquierda, si son varios, se van a ir agreando de Izquierda a derecha
+  3. float:right; de derecha a Izquierda
+  4. margin: auto; para flotarlo al medio
+  5. clear: left/right/both; dependiendo si se tienen elementos en la derecha, Izquierda o en ambos lados
+  * para cortar el float y poder flotar otro elemento en distinata posicion 
+
+# Display:inline-Block;
+
+- si tenemos unicamente la propiedad inline, no podemos modificar el padding,margin, top, bottom. esto por que los 
+  elementos inline son tratados como de linea (span, ul, li). 
+- al utilizar la propiedad display:inline-block; podemos darle margen, padding, etc...
+
+# Selectores Combinados en Css:
+
+  # Selectores Descendientes: 
+  Una vez aplicados, funcionan a todos los niveles internos de forma descendiente (a todos los elementos hijos)
+  - se denotan con el espacio dejado entre cada elemento html en Css
+    Ejm: el espacio entre la clase contenedor y el elemento p indican que p esta dentro del div con clase contenedor
+     div.contenedor p{
+       color:blue;
+    }
+  - no importa si estan dentro de otros elementos, que a su vez tambien están en el mismo div. puede ser a primer nivel o
+    niveles más internos
+
+  # Selector Child:
+  cuando descienden directamanete de un elemento padre, no está contenido por otro elemento intermediario
+  - se denotan con el simbolo mayor que (>) seguido del nombre del elemento hijo
+
+  # selectores de tipo Adyacente : afecta unicamente al elemento que esté justo despues del elemento de la clase
+    mencionada. a los demás elementos que estén después, no afecta. 
+    ejm:  acá afectará unicamente al segundo renglón (<p>). no al primero, ni al tercero
+    <div class="contenedor">
+        <p>primer renglón</p>
+    </div>
+    <p>segundo renglón</p>
+    <p>tercer renglón</p>
+    - se denotan con el simbolo más (+), seguido del elemeto Adyacente
+  
+  # Selectores de tipo hermano (Siblings):
+  toma todos los elementos que estan al mismo nivel del elemnto citado
+  - se denota con el simbolo de tilde (~) seguido del elemento que deseamos afectar
+
+
+# Pseudo Clases:
+Nos permiten manipular ciertos estados de nuestros elementos html
+- se denotan con el elemento html al que se quiera modificar, los dos puntos (:) y la funcion o condicion
+
+div.contenedor.primero p:first-child{
+  background-color: blue;
+}
+
+# Pseudo Elementos en Css.
+Modifican elementos html de forma mas particular. ejm. la primera letra de un párrafo, etc
+se denota con el elemento, seguido de los dos puntos(::) y el estilo que queremos aplicar
+div.contenedor1 p::selection{
+    background-color: yellowgreen;
+    
+    color: #f1fabd;
+}
+
+# Gradientes: 
+tonos de colores que se van difuminando en una misma superficie
+1. linear-gradient: de arriba hacia abajo va cambiando el background de tono
+
+- si quiero que el background no se repita al lo alto de la paginaweb, en el selector html modifico la altura 
+  (height:auto;), para que en el eje vertical se centre cualquier elemento que tengamos y la altura maxima 
+  (min-height:100%) para que en el eje vertical se expanda nuestro background
+- tambien puedo agregarle otro parametro al linear-gradient(to right, #color1, color2) para que en vez de que 
+  vaya de arriba a abajo, vaya de la Izquierda a la derecha o to left, para que vaya de derecha a Izquierda
+- de igual manera, puedo trabajar con tres colores. linear-gradient:(color1, color2, color3); y en ese orden 
+  se van a ir agregando la difuminacion, es decir color1 arriba, color2 en el medio y color3 abajo
+- linear-gradient(to bottom right, color1, color2); va desde desde la parte inferior izquierda (toma la 
+  parte superior derecha como punto de partida tambien) hasta la   inferior derecha, da la sensacion de que
+  va en diagonal hacia la derecha
+-linear-gradient(145deg, color1, color2); indica los grados en que se va a difuminar los colores ingresados
+
+
+
+2. radiales: son fondos  en los que el difuminado o gradient va desde el centro hacia afuera (por defecto)
+   o viceversa
+- radial-gradient(circle, color1, color2); trabajamos con algun tipo de figura geometrica con el que vamos a 
+  tener de patrón
+
+
+
+# sombras en css: 
+para agregarla a los textos y divs principalmente
+
+1. text-shadow:ejeX /ejeY/ difuminado(blur)/ color ; para los textos
+
+ejm:
+text-shadow: 2px -2px 4px gray;
+- el primer valor es la sombra sobre el eje x, por default se va a mover de izquierda a derecha. si le damos
+  un valor negativo, la sombra se mueve al contrario (izquierda)
+- el segundo sobre el eje y. va desde arriba hacia abajo por default.
+- aplican tembien los conceptos anteriores (negativo invierte el sentido)
+-el tercero es el blur(difuminado). a mayor valor, mayor difuminacion. negativo lo elimina
+- el cuarto el color
+
+OJO: existen generadores de sombras en google que facilitan el trabajo con el sombreado
+      text shadows css generator
+
+2. box-shadow:ejeX/ ejeY/ blur/ spread/ color;
+- el primer valor es la sombra sobre el eje x, por default se va a mover de izquierda a derecha. si le damos
+  un valor negativo, la sombra se mueve al contrario (izquierda)
+- el segundo sobre el eje y. va desde arriba hacia abajo por default.
+- aplican tembien los conceptos anteriores (negativo invierte el sentido)
+- el tercero es el blur(difuminado). a mayor valor, mayor difuminacion. negativo lo elimina 
+- el cuarto es el spread. exparsir la sombra
+- el quinto es el color
+
+# Flex-box en Css:
+Nos permite agregar elementos a un contenedor y manipularlos de una forma flexible y mas sencilla dentro del contenedor
+
+1. display:flex; los elementos se ordenan dentro del contenedor de forma horizontal. lo otro es la configurar los estilos
+   de la caja de tipo flex. background, color, etc
+   - los elementos se van acomodando de izquierda a derecha por default, pero se puede ir modifocando esa opcion
+
+2. flex-direction:column; para que se agreguen de arriba a abajo los elementos dentro del contenedor
+  - flex-direction:column-reverse; para que se ordenen de arriba hacia abajo, del ultimo al primero
+  - flex-direction:row; para que se ordenen como fila ( por default viene así)
+  - flex-direction:row-reverse; para que se ordene como fila de derecha a izquierda
+
+3. flex-wrap:nowrap; para que nuestros elementos permanezcan en el misma fila (orden horizontal dentro del bloque),
+    dentro del div contenedor, si este se hace de menor tamaño (no los envuelve)
+  - flex-wrap:wrap; los deja dentro del mismo bloque, unos arriba, hasta que no hay mas espacio y luego coloca a los
+    demas debajo (los envuelve)
+
+4. flex-flow: row nowrap; resume las propiedades flex-direction y flex-wrap
+    (colocas el valor del primero y el del segundo)
+
+5. justify-content:flex-start; (EjeX) organiza el contenido de izquierda a derecha ( default), en el ejeX
+  - justify-content:center; todos los elementos al centro
+  - justify-content:flex-end; organiza el contenido dederecha  a  izquierda
+  - justify-content:space-between; para dejar espacio entre los elementos del contenedor, respeta el padding de los 
+    extremos(de derecha e izquierda) del contenedor (dos elementos al extremo y uno al centro)
+  - justify-content:space-around; para dejar espacio entre los elementos del contenedor, no respeta el padding de los 
+    extremos(de derecha e izquierda) del contenedor
+  - justify-content:space-evently;para dejar espacio igual entre los elementos del contenedor, respeta el padding de los 
+    extremos(de derecha e izquierda) del contenedor
+
+6. align-items:alinea a todos los elementos al mismo tiempo de dentro del contenedor dependiendo del height que tenga el mismo.
+   dando le height al contenedor, los elementos internos tambien tomarán el height. para corregir esto y dejarlos con su height 
+   inicial y en la parte de arriba se trabaja con  esta propiedad
+  - align-items:flex-start; reduce el tamaño de los elementos y los alinea a la parte superior izquierda del contenedor  
+  - align-items:center; los alinea al medio
+  - align-items: flex-end, de derecha a izquierda
+  - justify-items:Stretch; el elemento cubre la altura completa del contenedor
+  - justify-items: baseline; traza una linea que ajusta el medio de cada elemento sin importar la diferencia de altura entre 
+    ellos. los alinea desde la parte superior y lo que sobra es para la inferior.
+    * todo esta alineacion va a depender del tamaño del la fuente(font-size) del texto. puesto que la linea se traza al 
+      medio del texto
+  OJO: tambien toma las demás propiedades del justify-content
+
+7. align-content: (EjeY) Espacio entre las lineas (estas dependen la alineacion del texto, general mente de la parte superior del
+   elemento) de los elementos que tenemos dentro de nuestro flex-box de forma vertical
+  - align-content:flex-start; se pega en la parte de arriba del contenedor, respetando el padding del mismo
+  - align-content:flex-end; se pega en la parte de abajo del contenedor
+  - align-content:center; se pega al medio del contenedor
+
+8. order:posiscion (como posicion va un numero); oredena los elementos en el contenedor segun el numero que se le asigne a cada uno de ellos.
+  - el valor por default es cero (0)
+
+9. flex-grow: indica que uno  de los valores (o varios) ocupan mayor espacio que los demás. el valor lo ocupa en el eje X (ancho)
+10. flex-basis: indica que uno  de los valores (o varios) ocupan mayor espacio que los demás pero en px. el valor lo ocupa en el eje X (ancho)
+11. flex-shrink:los encoge de ancho
+12. align-self: alinear elementos de forma vertical (EjeY) dentro del contenedor, de manera individual
+
