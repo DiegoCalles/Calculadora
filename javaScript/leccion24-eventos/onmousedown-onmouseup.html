@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos onmousedown - onmouseup en javaScript</title>
+</head>
+<body>
+    <h1 onmousedown="cambiarColor(this)" onmouseup="cambioColor2(this)" onclick="cambioColor3(this)">
+       
+        Eventos onmousedown - onmouseup en javaScript
+    
+    </h1>
+
+    <script>
+       let cambiarColor=(h1Valor)=>{
+           h1Valor.style.color = 'purple';
+           console.log(h1Valor);
+       }
+
+       let cambioColor2 = (h1Valor)=>{
+           h1Valor.style.color = 'green';
+           console.log(h1Valor);
+       }
+       let cambioColor3= (h1Valor)=>{
+           h1Valor.style.color = 'blue';
+           console.log(h1Valor);// este metodo se ejecuta al instante y el segundo no se nota 
+       }
+
+       
+    </script>
+
+    
+</body>
+</html>

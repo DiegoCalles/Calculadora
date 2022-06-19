@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de contenido DOM con funciones</title>
+</head>
+<body>
+
+    <h1 id="titulo">Cambio de contenido DOM con funciones</h1>
+    <button onclick="cambiar()"> Cambio de contenido</button>
+    <button onclick="cambiarAtributosHtml()"> Cambio de imagen</button>
+    <button onclick="cambiarColorCss()"> Cambio de color</button>
+
+    <img id="imagen" src="http://globalmentoring.com.mx/imagenes/javascript.png" alt="">
+    <script>
+        function cambiar(){
+            //document.getElementById('titulo').innerHTML= 'Nuevo Titulo';
+            // si quisieramos agregar otro valor o contenido al inner de la etiqueta html (+=)
+            document.getElementById('titulo').innerHTML+= ' Nuevo Titulo';
+        }
+        //
+        function cambiarAtributosHtml(){
+            document.getElementById('imagen').src= 'http://globalmentoring.com.mx/imagenes/html5.png';
+        }
+        function cambiarColorCss(){
+            document.getElementById('titulo').style.color= 'blue';
+        }
+
+
+    </script>
+    
+</body>
+</html>

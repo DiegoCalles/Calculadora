@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos ofocus - onblur en javaScript</title>
+</head>
+<body>
+    <h1>Eventos ofocus - onblur</h1>
+
+    <label for="nombre">Nombre: <input type="text" onfocus="cambioBack(this)" onblur="cambioBack2(this)">
+        
+    </label>
+
+    <script>
+        let cambioBack = (nombre)=>{
+            nombre.style.background ='orange';
+            nombre.style.color = 'brown';
+        }
+
+        let cambioBack2=(nombre)=>{
+            nombre.style.background='red';
+            nombre.style.color = 'pink';
+            
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,1180 @@
+# Que es javaScript?
+
+- lenguaje interpretado que puedde ser leído (parseado) y ejecutado  por navegadores web
+
+- está presente tanto en el frontend, con frameworks o librerias como angular js, react js, vue js,
+  como en el backend con frameworks como node js
+
+# Intalacion de node js:
+
+- debido a que vamos a trabajar con una extensión que se llama  quokka, esto para que podamos ver los 
+  resultados mas rapidos en tiempo de ejecucion, y  la misma trabaja con node.js, debemos descargarlo de la pagina oficial
+
+# Instalación de extensiones en visual studio code
+1. quokka: para agilizar las ejecuciones de nuestro codigo. al salvar el codigo vamos a ver la ejecucion rápidamente en consola
+2. bracket pair colorization: para mantener el orden de la indentecion con los brackets abiertos y sus respectivos brackets de cierre.
+3. ESlint: para dar formato a nuestro código , así como las mejores practicas a nuestro codigo
+4. prettier code: tambien para dar formato a nuestro código.
+5. dedugger for chrome: para hacer debug sin tener que ir a chrome
+6. better comments: para agregar colores a los distintos comentarios que hagamos en nuestro código
+7. intellicode: para completar nuestro codigo cuando copiemos en javaScript
+8. liveserver: para desplegar un servidor de manera local
+
+# Hola Mundo:
+- para definir una variable, e inicializarla se deben seguir ciertos patrones:
+1. la keyword 'var' que precede al nombre de la variable
+2. el simbolo de asignación, que es el de igual (=), despues del nombre de la variable.
+3. el valor de la variable (string, int, boolean, etc)
+4. el punto y coma (;) para cerrar la linea de codigo
+
+- para mostrarla por consola:
+1. console.log(nombre);
+    - pero se necesita trabajar directo con un navegador, para esto sirve quokka:
+    1. crtl+p, escribir > quokka javaScript file
+    2. en el archivo ts que se genera, copio el código js el el debugger se mostrará  el nombre en la variable y quokka extension mas 
+       la linea en la que se mostró el console.log y la linea donde está la var a mostrar respectivamente (3:1)
+    3. para detenerlo puedo utilizar la seccion de start/ stop current file o simplemente darle click a stop
+
+# tipos de datos en javaScript:
+
+1. string: Cadena de caracteres, se escribe entre comillas dobles o simples
+2. numericos: numeros...
+3. objetos: con llaves y dandole una propiedad, seguido de los dos puntos (:) y el valor de la misma. si necesitamos agregar otra
+   propiedad, colocamo una coma (,) y hacemos el mismo proceso
+4. boolean : true / false
+
+5. funtion: son reutilizables, se denotan con la keyword 'function' + el nombre de la funcion + los parentesis () + las llaves {}
+  - dentro de los parentesis los datos que va a recibir nuestra funcion 
+  - dentro de las llaves las lineas de codigo de nuestra funcion
+6. Symbol: para crear datos unicos.  var simbolo = Symbol("nuevo simbolo")
+
+7. clases: pueden ser objetos que contienen sus atributos y funciones.
+  - los atributos se expresa en un metodo constructor 
+  Ejm:
+  class empleado{
+    constructor (nombre, apellido){
+      this.nombre = nombre;
+      this.apellido = apellido;
+    }
+
+    funtion saludar(){
+      console.log("Hola mundo!")
+    }
+  }
+
+8. undefined: al que no se asigna ningun valor, no se inicializa, solo se declara. tambien podriamos asignarle el valor undefined y
+   retornaria lo mismo (undefined)
+
+9. null: ausencia de valor. es parecida a undefined. si damos ese valor a la variable, indicamos que la misma no tiene valor aun.
+   El tipo de dato que genera es de 'object'
+10.  Array: un tipo de dato que devuelve un 'object' type. se denota con el nombre del array = ['valor1', valor2, true]
+11. empty string: cadenas vacias / var vacia = ""; devuelve un typeof string
+
+* typeof: en javaScript las variables se definen como dinamicas. lo que quiere decir es que tanto el tipo de dato, como sus valores pueden
+  modificarse en cualquier momento según se de la orden. 
+  con la funcion typeof + el nombre de la variable detectamos el tipo de dato de la variable
+
+# Concatenacion de cadenas
+- simplemente se suman con el signo más (+).  var nombreCompleto = 'Juan' + ' '+  'Calles'; 
+- si tenemos un numero y queremos concatenarlo a un string: se debe tomar en cuenta que  las expresiones en javaScript se toman de 
+  izquierda a derecha, es decir que si el string está primero en el orden de Concatenacion, el numero será tratado como un string
+
+  OJO: a todo esto se le conoce como string context o contexto de cadena
+  ejm: 
+  var nombre = "Juan"
+  var x = nombre + 219 +11;
+  console.log(x) * esto retornara : Juan21911. debido a que lo primero que parseó fue la var nombre y como es un string, tomó a 219 y 
+   el 11 como un string tambien para concatenarlo
+  - si queremos que se sumen debemos colocarlos dentro de un parentesis var x = nombre + (219 +11); retornara Juan230. 
+  - pero si comenzamos con los numeros entre parentesis antes del string, realizará la operacion y la concatenará con el string
+   var x =  (219 + 11) + nombre; retornara 230Juan
+
+# extension de botones quokka:
+1. quokka statusbar button: en la parte inferior nos genera unos iconos que nos permitiran realizar acciones en quokka, como iniciarlo, 
+    detenerlo, mientras se está ejecutando
+
+# Uso básico de var, let y const: sintaxis basica de la declaracion de variables en javaScript
+
+el uso de la keyword var ya no es recomendado. se puede inicializar una variable sin la palabra var
+nombre ="Juan"; y lo retornará igualmante, sin embargo , esto no es una buena practica.
+
+el uso correcto sería la keyword let para las variable s a las que se les puede modificar su valor y const para las que no.
+
+# Buenas practicas para nombres de variable s en javaScript:
+
+1. camell sintax / let nombreCompleto = "Juan calles";
+2. dos variables en una misma linea / let x, y; >>> x= 10, y= 20;  let z = x + y; retornara 30
+
+# Reglas para definir variables en javaScript:
+1. javaScript es case sensitive cuando declaras una variable. es decir tomará como dos nombres distintos si uno tiene una mayuscula
+2. no pueden comenzar con un numero. arrojará el mensaje 'let/const is not defined', solo guion bajo y dollar(_  / $) como signos
+3. no se puede utilizar palabras reservadas o keywords como nombre de variables (let, const, boolean, break, etc...)
+
+
+# Operadores javaScript:
+
+A.) Aritmeticos:
+
+  1. Addition (+)
+  2. Subtraction (-)
+  3. Multiplication (*)
+  4. Division (/)
+  5. Exponentiation (**)
+  6. Modulus (%)
+  7. increment (++)
+  8. decrement(--)
+
+  * los Operadores de incremento y decremento tienen dos variaciones:
+  - pre incremento: se utiliza el operador antes de la variable (++ num). se le asigna el valor antes del proceso
+  - post incremento: el operador despues dela variable  (num ++).  se le asigna el valor despues del proceso
+
+B.) De Asignacion:
+
+  1. Operador de asignacion(=):
+     utilizado para  asignarle un valor a una variable será guardado en la misma.
+  2. Operador de asignacion compuesto (+=):
+      utilizado para incrementar el valor de la variable  al momento de inicializarla.
+      por ejemplo, si a = 3; y le incremento su valor así: a += 2;  el valor que tomará es de 3+2. ahora a =5, y si se lo incremento con:
+      a += a; ahora será, 5 + 5. por lo tanto a = 10;
+      * lo mismo aplica para: -=, *=, /=, %=, **=
+
+C.) Relacionales y De Comparación:
+    si las comparaciones hechas son ciertas, retornará  true, si no, false
+
+  1. > mayor que (relacional)
+  2. < menor que (relacional)
+  3. >= mayor o igual que (relacional)
+  4. <= menor o igual que (relacional)
+  5. != distinto A
+  6. == igual a ( revisa si los valores son iguales)
+  7. === igual a de manera estricta (revisa si los valores son iguales, pero tambien si el tipo es igual. esto ultimo lo revisa primero)
+  8. !== distinto  para los valores y los typeof
+
+D.) operadores logicos:
+
+  1. &&  el ampersand quiere decir "y" . acá todas las expresiones deben cumplirse
+  2. || el doble pipe  quiere decir "o" . acá al menos una debe cumplirse
+
+E.) Operador Ternario:
+  - es similar al if/else. se declara una variable y se inicializa con una operacion establecida (expresion booleana), luego un signo de
+    interrogacion, luego, de resultar verdadera la operacion se le asigna un valor  a la variable (puede ser un mensaje), luego vendrían 
+    los dos puntos y la ultima parte que sería el valor asignado a la variable si la operacion resulta falsa
+
+    Ejm: 
+    * si 2 es mayor a 1, resultado tomará el valor de "Es verdadero", si no, omitirá el valor de verdadero y tomará solo,  el valor de 
+    "Es falso"
+
+    let resultado = (2>1) ? "Es verdadero" : "Es falso";
+
+
+
+# Precedencia de Operadores en JavaScript:
+
+- los calculos en las operaciones se hacen de izquierda a derecha y luego se asignan a la variable creada para guardar la operacion
+  * el parentesis, los corchetes (arrays), los unarios de incremento y decremento estan primeros en priodridad. 
+  * Luego el operador de multiplicacion/division tiene prioridad por sobre el de  suma/resta. si tenemos antes una mult que una div 
+    se multiplica y viceversa
+  * la suma y la resta vienen  despues en el orden de prioridad
+  * como ultimo estarian los >, <, >=, <=, ==, !=, === etc
+
+# convertir  de string a numero ( Number):
+- se utiliza para evitar consistencias en las operaciones
+- se trabaja con la funcion number(variable), y dentro la variable que se desea pasar de un typeof (string por ejemplo) a number
+
+# Saber si no es un numero (isNaN):
+- isNaN(variable)
+
+
+# Sentencia If / Else:
+- Sentencia con una condicion y dos posibles soluciones o alternativas. si la condicion es verdadera, una solucion. si es falsa, otra.
+-si solo hay una linea de codigo en el if y en el else, podemos precindir de la llave en cada uno de ellos
+- lo recomendable es siempre utilizar las llaves para que no haya errores para hallar el bloque de cada sentencia
+  (DECLARATION O STATEMENT EXPECTED) error
+
+# Sentencia Switch:
+- hay una expresion que puede tener distintos valores (numericos, booleanos, string, etc)
+- dependiendo del caso o la coincidencia del caso, se ejecutan las sentencias de ciertos casos.
+- si no coincide el caso 1, toma el caso 2 hasta que al final cerremos el Switch con un break 
+- default es una keyword parecida al else. se pueded colocar al inicio o al final de la sentencia Switch
+- la sentencia Switch trabaja con comparacion estriCta ( === trabaja con el typeof), por lo tanto no compara distintos tipos de datos
+* OJO: es recomendable colocar el break al final de cada caso
+
+# ciclo while:
+
+- se va a ejecutar una condicion. De ser verdadera, se ejecuta una o varias sentencias o bloques de codigo.
+- al terminar el bloque de codigo, se  vuelve a ejecutar la condicion. Mientras sea verdadera, se vuelve a ejecutar el bloque.
+- si la condicion resulta falsa, se termina el ciclo o bucle while
+
+1. para programar un ciclo, necesitamos una variable, llamada contador
+2. para confirmr que el ciclo terminó, podemos mostrar un mensaje por pantalla, creado fuera del ciclo. una vez termine el ciclo, se
+   mostrará el mensaje
+
+# ciclo Do while:
+- a diferencia del ciclo while, este se ejecutará al menos una vez
+- comienza con  el keyword do, seguido del bloque de codigo. luego viene la condicion
+- de resultar verdadera, se ejecutará de vuelta el bloque de codigo, hasta que sea falsa la condicion
+- una vez falsa se saldrá del bucle
+
+# ciclo for:
+ tiene la secciones de:
+1. inicializacion de la variable ( solo se ejecuta una vez)
+2. revision de la condicion ( se ejecutará tantas veces como sea verdadera)
+3. incremento o decremento del contador (se ejecutará tantas veces como el ciclo sea verdadero)
+- se ejecutará las veces en la condicion sea verdadera 
+4. luego entre llaves el bloque de codigo
+
+# palabra break: 
+- ya ha sido utilizada en el Switch. ahora la vamos a utilizar para romper un ciclo
+
+# Palabra continue:
+
+- si la condicion expuesta no es verdadera, continua e imprime la siguiente iteracion (la verdadera)
+
+# Etiquetas (Labels):
+
+- a pesar de no ser muy utilizadas, se utilizan para ir o llevar la ejecucion a cierta parte del codigo.
+- se crean con el nombre de la etiqueta, seguido de los dos puntos (NombreEtiqueta:)
+* por ejemplo: si quiero que el continue vaya al inicio del ciclo for, puedo crear una Etiqueta al inicio de ciclo:
+inicio: o en break, lo dentendria en la parte del inicio (donde esta la etiqueta de inicio)
+
+inicio:
+for(let contador = 0; contador < 10; contador++){
+     // acá coambiamos la logica. preguntaremos si el numero no es par( con comparacion estricta). si no lo es, le pediremos que avance
+    if(contador % 2 !== 0){
+        continue inicio; // ir al inicio de la siguiente iteracion
+    }
+    else{
+        console.log(contador)
+    }
+}
+
+OJO: este tipo de programacion (con labels) no es recomendada, se conoce como (go-to), puede darse la situacion en que nos la 
+     encontremos
+
+# Arrays:
+- Es un tipo object que permite almacenar varios datos de distintos tipos
+-  formas para declarar un array:
+  1. clasica : let autos = new Array("BMW", "Volvo", "Mercedes Benz");
+  2. recomendada: con la keyword const autos = ["BMW", "Mercedes Benz", "Volvo"]
+    * la keyword const asegura que el espacio generado en memoria para la variable "autos" va a ser el mismo y no pueda ser modificado. 
+      Sin embargo, los datos dentro de la misma si.
+
+  # Recorrer Arreglos:
+  - en javaScript los elementos de un array se recorrenutilizando el nombre del mismo y el index 0 (primer elemento del array) entre 
+    corchetes (autos[0]) , index 1 para el segundo elemento (autos[1])
+
+  # Modificar elementos de un Arreglos:
+  - para modificar el valor del arreglo: indicamos el nombre del array + el index del elemento del array y cambiamos su valor
+    autos[1] = "Fiat";
+
+  # Agregar un nuevo elemento al array:
+  1. nombre del array + el metodo "push()" y dentro del parentesis el nuevo valor. Este se agregará al final del array
+     autos.push("Audi")
+  2. nombre del array y dentro de las llave sel nombre del array la propiedad .length +  el nuevo valor del array (esta propiedad me 
+     arrojará el valor del ultimo elemento del array)
+      autos[autos.length] = "Cadillac";
+  3. para agregaar un nuevo elemento en un indice mayor, pero dejendo un espacio libre, simplemente debo contar la cantidad de indices
+      que tengo y sumarle dos espacios 
+      ejemplo: autos = ["BMW", "Mercedes Benz", "Volvo"] llega al index 2. si quiero agregar uno y dejar un espacio vacio, crearia el 
+      nuevo valor en el index 4
+      autos[4] = "Hummer"; 
+
+  # Preguntar si es un Array:
+  - si lo hacemos con el metodo typeof, nos arrojará un tipo object
+  - con la clase Array.isArray(autos), si lo mostramos por consola arrojará "true"
+  - el nombre del array + la keyword instanceof + Array y arrojará "true"
+
+  alt + 96 para generar esta tilde (`) que sirve para mostrar el console.log todo en string cuando usamos 
+    console.log(`el nombre de la variable es:%{nombre de variable}, su DNI: %{dni}`) por ejemplo
+  # funcion filter:
+  let gente = [{nombre:'ana', edad:19}, {nombre:'luis',edad:4},{nombre:'pedro',edad:28}]
+  let personas = gente.filter((persona, indice, arreglo)=>indice ==0)
+
+  1. persona: primer parametro de la funcion filter, utilizado para filtrar elementos o un elemento de un arreglo
+  2. indice: segundo parametro de la funcion filter, utilizado para filtrar Utilizando el filter y accediendo a la propiedad 
+     del indice de cada elemento en cada iteración, podemos filtrar cada uno de los tres ganadores en diferentes variables.
+  3. arreglo:  se trabaja con funciones (aun no las he visto) puede tomar el ejemplo anterior(ganadores) para enviar mensaje al no ganador
+
+# Funciones:
+- es un codigo reutilizable
+- realiza cierta o ciertas tareas
+
+  1. declaracion de una funcion:
+
+  function nombreDeVariable(arg1, arg2){
+    //bloque de codigo
+    console.log(`suma:${arg1+arg2}`);
+  }
+
+  2. llamado de la funcion: sin esto no se ejecutará
+
+  nombreDeVariable(5, 7);
+  * esto retornará la  suma de los dos argumentos
+
+  # Hoisting:
+  - a la funcion la podemos mandar a llamar en cualquier parte del programa, puede ser antes de declararla y con el principio de "hoisting",
+    se moverá al principio del programa para ser ejecutada en cualquier parte de nuestro programa
+
+  # Return:
+  cuando queremos que la funcion retorne un valor sin necesidad que se muestre por consola
+
+  # Funciones de tipo expresion (funciones anonimas):
+  cuando trabajamos con funciones, podemos asignarlas a una variable. de esta manera evitamos ponerle nombre a la funcion, estas son 
+  conocidas como funciones de tipo expresion o funciones anonimas.
+
+  - como se inicializa en una variable, es una linea de codigo, termina en punto y coma (;)
+
+  # Funciones Self-invoking:
+  funciones que se mandan a llamar a sí mismas. Puede ser al momento de cargarse el programa
+  - la comenzamos declarandola dentro de un parentesis (asi se convierte en una funcion anonima tambien)
+  - para llamarla colocamos los parentesis, abierto y cerrado (acá, si la funcion tiene parametros, se le pasan los argumentos).
+    luego el punto y coma ";"
+    (function(){
+      console.log("Hola");
+    })();
+    ahi mostrará por consola el mensaje
+  - una caracteristica de este tipo de funciones es que no se puede volver a llamar. solo esa unica vez
+
+  # Funciones como objetos en javaScript:
+  las funciones como tipo de dato (typeof) retornarán 'function'. sin embargo pueden ser tratadas como objects, puesto que tiene 
+  propiedades y metodos u operaciones.
+
+  - de esta forma podemos trabajar con sus propiedades, por ejemplo cuantos argumentos tiene:
+  1. arguments.length : propiedad que podemos utilizar dentro de la funcion
+
+    console.log(arguments.length);
+
+    function conReturn(a, b){
+    return (a + b);
+}
+
+let resultado = conReturn(5, 6);
+console.log(resultado);
+
+  2. toString: metodo para pasar a string mi funcion:
+
+  # Funciones Flecha (Arrow):
+  - se parecen a la funcion de expresion en cuanto a que se declara dentro de una variable.
+  - se omite la keyword function
+  - se omite el return
+  - se trabaja con la flecha despues de declarar los parametros (a, b)
+  - se muestra la operacion (a + b)
+  - el resultado de esa operacion se guardara dentro de la variable (recomendable const)
+
+  # Argumentos y parametros:
+  *Parametros: las variables que recibe la funcion
+  *Argumentos: el valor que se le da a las variables al llamar a la funcion
+
+  - como la funcion es un objeto, podemos trabajar con la propiedad arguments para los parametros(propiedad del objeto funcion), 
+    que es un array. por lo tanto se puede determinar el indice de cada elemento, todo esto dentro de la funcion. 
+    ejemplo: arguments[0]  / este seria el primer argumento que se le pasa a la funcion.
+
+    OJO: es a los argumentos pasados, no a los parametros
+  
+  - si los parametros son definidos en la funcion y no se pasan valores como argumentos al llamar a la funcion, la propiedad arguments 
+    retornaría 'undefined'.
+  - si pasamos ambos (parametros definidos y argumentos al llamar a la funcion), el valor de los argumentos sobre escribe al de los 
+    parametros definidos
+  - si pasamos otro argumento al llamar la funcion, este será tomado en cuenta sin importar que no coincida con la cantidad de parametros
+    declarados. 
+
+  # Paso por valor en funciones:
+  - cuando pasamos argumentos que no son objetos (numeros, booleanos), al momento de llamar a la funcion el valor de los parametros es
+    sustituido por los valores de tipo primitivo (numeros, booleanos).
+
+  - lo que se hace es una transferencia o traspaso de valor entre el parametro de la funcion y el argumento que se pasa a la funcion 
+    (el valor de una variable numerica o booleana), que es una variable inicializada fuera de la funcion. por lo tanto si en el bloque
+     de codigo de la funcion se le asigna un valor al parametro, el valor del argumento no va a cambiar por el del parametro fuera del
+     bloque de la funcion.
+
+  # Paso por referencia:
+  - para hacerlo, hay que crear un objeto.
+  - los objetos se crean con la keyword const
+  - los valores del objeto pueden ser modificados fuera de la funcion cuando se le pasa como argumento el mismo objeto
+  - los valores del parametro de la funcion se destruyen al terminar la ejecucion de la misma y quedan guardados en el objeto 
+
+# Objetos. 
+- tienen metodos o funciones y atributos.
+- existen varias formas de crear objetos:
+
+1. para crearlos: nombre: + {propiedades:'valores', y metodos(parametros){bloque de codigo}}
+- luego de creado el objeto, se crea o reserva un espacio de memoria con su respectiva referencia
+- la variable (persona) se le asigna una referencia en memoria. si es hexagecimal (0x 333 por ejemplo) 
+- para crear metodos en el objeto, le damos un nombre como  con las propiedades + la keyword 'function' + (parametros) + {bloque}.
+- si hay varias funciones creadas dentro del mismo metodo, deben ir separadas por comas(,)
+- para acceder a las propiedades y metodos dentro del objeto, lo hacemos con el apuntador 'this'.
+- se puede retornar un metodo dentro de otro metodo y concatenar atributos con metodos al retornerlos
+
+2. let nombreObjeto = new object();
+-para agregarle atributos, lo hacemos de forma dinamica: nombreObjeto.nombre = 'jose';/ nombreObjeto.apellido = 'Araujo';
+
+  # Acceder a propiedades del objeto:
+  1. nombreObjeto.propiedad
+  2. nombreObjeto['propiedad']. los objetos tambien pueden ser tratados como arreglos.
+  
+  - para recorrerlos desde un for, lo hacemos con un 'for in'. la sintaxis cambia en comparacion a la del for conocido hasta ahora
+    1. para que me muestre solo los nombres de las propiedades
+    - si la variable nombrePropiedad esta sola a la hora de mostrarla por consola, va a retornar el nombre de las propiedades
+    for(nombrePropiedad in persona){
+      console.log(nombrePropiedad)
+    }
+    
+    2. para que me muestre los valores de la propiedades.
+    - si colocamos la variable nombrePropiedad dentro de los corchetes del array, las transformamos en los valores del objeto
+     for(nombrePropiedad in persona){
+      console.log(persona[nombrePropiedad])
+    }
+
+  # Agregar y Eliminar propiedades a objetos:
+  - Agregar: 
+    objeto.NombrePropiedad = 'valorPropiedad'; si es string
+  - Borrar:
+    delete objeto.NombrePropiedad (se borra el nombre y el valor de la propiedad)
+
+  # Mas Formas de imprimir los objetos:
+  - cuando estemos trabajando con navegadores y mandemos a imprimir el el objeto, va a imprimir solo el typeof y no las propiedades.
+    por eso existen otras formas de imprimir para que los muestre:
+
+  1. para imprimir desde el metodo  Object.values(persona) / devuelve el objeto con nombres: valores entre corchetes []
+  2. para imprimirlo desde el metodo JSON.stringify(persona) / devuelve el objeto con nombres: valores entre llaves {}
+
+  # metodo get:
+  se utiliza para acceder, de mejor manera a las funciones de nuestro objeto
+  - no toma parametros
+  - al utilizarlo, cuando se va a crear un metodo o funcion dentro del objeto:
+    get nombreMetodo(){
+      return bloqueCodigo;
+    }
+  - al momento de imprimirlo por consola, no es necesario los parentesis del metodo, puesto que lo creamos con el get que indica que es
+    una funcion para acceder a info del metodo de nuestro objeto:
+    console.log(nombreObjeto.nombreMetodo); // retornará 'bloqueCodigo'
+
+  # Metodo set:
+  se utiliza para modificar funciones y propiedades de nuestro objeto
+  - se establece de la siguiente forma:
+
+    idioma: es, // propiedad creada dentro de un objeto
+    set idiomaUtilizado(lang){
+      this.idioma = lang.toUpperCase();
+      
+    }
+  - al imprimirlo:
+    console.log(persona.lang) // retornará ES
+  
+  - para modificarlo:
+    persona.idiomaUtilizado = en; // aca acedo al metodo set, puesto que con el igual (=) estoy modificando una propiedad del metodo
+    console.log(persona.lang) // retornará EN
+
+  # Metodo Constructor:
+  funcion especial para poder instanciar o crear mas objetos de la misma clase.
+  - para crear metodo constructor:
+      function persona(nombre , apellido, email){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email= email;
+    }
+  - para crear un objeto nuevo de tipo persona:
+    let padre = new persona("Juan", "Araujo", "diego@diego.com");
+  - cuando utilizamos la keyword "new" apartamos un nuevo espacio de memoria reservado unicamente para ese nuevo objeto
+
+  # Agregar metodos a un metodo constructor:
+
+  - lo trabajamos sin agregarlo a los parametros del metodo constructor
+  - se crea con la siguiente estructura: this.nombreCompleto = function(parametros){bloqueCodigo}
+
+  # mas formas de crear objetos cuando trabajamos con el metodo constructor:
+  1. para objetos:
+    - let miObjeto = new object();
+    - let miObjeto ={}; // recomendada
+  2. para tipos primitivos:
+    - let miString = new string('Hola');
+    - let miString = 'Hola'; //recomendada
+
+    - let number = new number(1);
+    - let number = 1;
+
+    - let boolean = new boolean(true);
+    - let boolean = false;
+  3. para arrays:
+    - let miArray = new array();
+    -let miArray = [1, 2];
+
+  # Uso de Prototype:
+  - la utilizamos cuando queremos modificar metodos y propiedades al objeto y que todos los nuevos objetos puedan accerder a los mismos,
+    sin necesidad de agregarlos desde el metodo constructor.
+  - la sintaxis sería: 
+  objeto.prototype.telf = '44332211';
+  - de esta forma todos los objetos creados a partir del objeto persona (metodo constructor), tomarán tanto el nombre de la propiedad,
+    como su valor. ejm: padre.telf = '44332211';
+  - si queremos modificar el valor en algun objeto, simplemente lo hacemo directamente desde el mismo. 
+    madre.telf = '99887766; se modificará solo el objeto 'madre'
+
+  # Metodo call:
+  - con el metodo call, un objeto1 puede usar un metodo que le corresponde a otro objeto2, pasando  el objeto2 como argumento del metodo
+    call.
+                objeto2               objeto1 // el objeto1 (emp1) está utilizando el metodo "fullName" del objeto "empleado" (objeto dos)
+    console.log(empleado.fullName.call(emp1));
+  - el metodo call acepta argumentos aparte del objeto. Los mismos van despues del argumento objeto (emp1).
+    console.log(empleado.fullName.call(emp1, "Paris", "Barcelona"));
+
+  # Metodo Apply:
+  - con el metodo Apply, un objeto1 puede usar un metodo que le corresponde a otro objeto2, pasando  el objeto2 como argumento del metodo
+    aply. la diferencia con el metodo call es que en la funcion call podemos pasar parametros individualmente y en el aplay como arrays.
+  
+  # Metodo bind:
+  - para borrar el metodo de un objeto1 por medio de un objeto2 que es pasado como argumeto al momento de llamar  al metodo del objeto1
+    let fullName = person.fullName.bind(member);
+    // person es el objeto1 y member el objeto2. desde member se borra fullName del objeto1 (person)
+
+  # Clases:
+
+  - son moldes para crear objetos
+  - los objetos creados a partir de una clase se llaman instancias
+  - se crean con la palabra reservada class, seguido del nombre de la clase en mayuscula, las llaves, dentro de las llaves el metodo
+    constructor para los atributos de la clase y fuera del metodo constructor los demas metodos de la clase
+  - en las clases, a diferencia de en los objetos, no necesitamos separar los metodos por comas.
+
+    class Car{
+      constructor(name,age){
+        this.name = name;
+        this.year = year,
+      }
+
+      carAge(){
+        let date = new Date(); // date() es una clase que trabaja con las fechas y el tiempo
+        return date.getFullYear() - this.year;
+      }
+    }
+
+    - para instaciar la clase:
+
+      
+      let myCar = new Car("Classic", 2010);
+
+      console.log(myCar.carAge());
+
+    # Metodo get y set:
+    * GET: para optener informacion de las propiedades y metodos de una clase
+    * SET: para modificar informacion de las propiedades y metodos de una clase
+      - en el set se recibe como parametro  el atributo que va a ser mofidificado
+
+    - cuando trabajamos con el metodo get y set en una clase, las propiedades no pueden tener el mismo nombre que los metodos get y set,
+      que al hacer el llamado al metodo (get o set) se confundirian el metodo de la propiedad.
+      por eso, generalmente se les agrega un guión bajo (this._nombrePropiedad) a los nombres de las propiedades
+    - en los metodos get o set no tenemos que usar parentesis al llamarlos
+
+    # Hoisting y Clases:
+    - cuando trabajamos con clases no se puede aplicar el hoisting, como en las funciones. es decir debemos crear la clase y luego 
+      instanciarla
+
+    # Herencia:
+    - utilizado para heredar porpiedades y metodos de una clase padre a una clase hija.
+    - fue creado con el diagrama UML (Unified Modeling Language) 
+    - cuando creamos una clase hija, declaramos la clase, el nombre (en mayuscula), seguido de la keyword 'extends' y el nombre de 
+      la clase padre. 
+      class Empleado extends Persona(departamento){
+        constructor(nombre, apellido,departamento){
+          super(nombre, apellido)// nombre y apellido son atributos heredados de la clase padre
+          this._departamento = departamento;
+        }
+
+        get departamento(){
+          return this._departamento;
+        }
+        set departamento(departamento){
+          this._departamento = departamento;
+        }
+      }
+    - al crear el constructor de la clase hija le debemos llamar al metodo super(), que hace referencia al metodo constructor de la clase
+    padre, asi como el o los parametros del metodo constructor de la clase padre. estos parametros van a ser pasados en ambos constructores  
+      padre.
+  # Heredar Metodos:
+  - para heredar metodos (no get ni set), lo creamos sin colocarle comas(,) despues. solo el nombre del metodo, los parentesis y las llaves
+   nombreCompleto(){
+     return this._nombre + ' ' + this._apellido;
+   } 
+  - para hacerle el llamado al metodo desde una clase hija, el mismo debe terminar en parentesis.
+    console.log(empleado1.nombreCompleto());
+  
+  # Sobreescritura en javaScript:
+  - la clase hija modifica el comportamiento definido del metodo de la clase padre.
+  1. forma larga de hacerla modificacion (no recomendada)
+  - En la clase hija, se crea el metodo con el mismo nombre que el metodo de la clase padre, que se desea modificar.
+  - si tiene parametros se deben copiar igual
+  - se retornan las propiedades del metodo de la clase padre y se agrega la nueva
+    nombreCompleto(){
+        return this._nombre +' '+ this._apellido + ', ' + this._departamento;
+    }
+  2. con la keyword super, seguido del punto (.) y el nombre del metodo de la clase padre y sus parentesis se puede concatenar las 
+     propiedades del metodo
+     padre.
+     
+     return super.nombreCompleto() + ', '+ this._departamento;
+
+  # Clase Object -Metodo toString - Sobreescritura - polimorfismo:
+  cuando trabajamos con herencia, si  no especificamos en el extends de que clase se hereda, toda clase hereda de la Object. esta tiene 
+  muchos metodos:
+  1. toString:  
+  - se utiliza para imprimir info del estado del objeto, los valores actuales del objeto. es buena practica agregar este 
+     metodo a la definicion de nuestras clases.
+  - Cuando trabajamos con la clase Object, existen metodos que trabajan directamente con la clase y otros que trabajan con el atributo u
+    objeto prototype. el metodo toString es uno de ellos. Prototype permite modificar atributos de manera dinamica a las clases
+  - para utilizarlo: Object.prototype.toString()
+  - si queremos mostrarla en un navegador, con el metodo console.log(empleado1.toString()) va a imprimir el typeof [object Object]
+  - si queremos que se muestre debemos sobreescribir el metodo toString() en mi Clase padre
+
+  # polimorfismo:
+  - multiples formas en tiempo de ejecucion. el metodo que se ejecuta, depende si es una referencia del padre o hija
+  1. desde un objeto de la clase hija, podemos llamar al metodo de la clase padre así no esté el mismo en la clase hija, haciendo una 
+    sobre escritura del metodo toString en la clase padre.
+    así al llamarlo desde el objeto de la clase hija puedo retornar el metodo de la clase padre
+  2. trabajo con la sobreescritura de un metodo en comun en la clase padre y la clase hija, luego hago el llamado al mismo metodo  desde un 
+     objeto de la clase hija y me retornará los atributos de ambas clases contenidos en el metodo.
+    console.log(persona1.toString()); diego calles 36
+    console.log(empleado1.toString()); diego calles 36 web developer
+
+# Palabra static:
+- generalmente utilizados para implementar metodos que pertenecen a la clase como un todo, no a un objeto particular de la misma.
+  por ejemplo, podemos comparar dos objetos de la clase.
+- Una vez creada nuestra clase, podemos crear metodos que se asocien entre ellos y podemos crear metodos que se asocien solo a nuestra
+  clase y no con los objetos que se creen a partir de esta clase.
+- para crear el metodo static se hace de la siguiente forma:
+  
+    static saludo(){
+      console.log("Hola mundo!");
+    } 
+- al llamar a la funcion desde un objeto creado de la clase retorna un error (static.saludo is not a function), puesto que no es posible 
+  llamar a un metodo static desde un objeto.
+
+- se puede sí, dentro del metodo static, pasar por parametro un objeto. y esto retornará el valor del argumeto pasado al objeto en cuestion
+   
+   static saludo2(automovil){
+        console.log(automovil.marca);
+    }
+- al hacer el llamado a la funcion saludo2, pasamos como argumento el objeto de la clase Automovil que se creó. y nos retornará la marca
+
+  Automovil.saludo2(miAuto);
+OJO: con los metodos staticos, quokka solo muestra los resultados desde la consola ( no en el bloque de codigo)
+
+# Atributos staticos en javaScript:
+
+- al igual que los metodos static de las clases, los atributos tambien solo pueden ser llamados desde la clase, no desdde el objeto.
+- pueden heredar en las clases hija
+- si se asocia a un objeto, el resultado es que se crea una variable aparte pero sin asignarle ningun valor (NaN)
+- Para acceder al atributo static dentro del constructor, lo hacemos por medio de la clase Persona.contadorObjeto++;
+
+# Atributos Static y no static (atributos fuera del constructor)
+
+* atributos static
+- como no tienen la keyword static, son atributos de los objetos, no de clase
+- si los lllamamos desde el objeto da undefined, porq se estaria creando una nueva variable pero no se ha inicializado
+- lo hereda la clase hija
+
+* Atributo no static
+- caso contrario de los static, se pueden utilizar en los objetos
+- si los lllamamos desde la clase da undefined, porq se estaria creando una nueva variable pero no se ha inicializado
+- lo hereda la clase hija
+
+# Constantes staticas (solo de tipo lectura):
+
+- no se puede hacer con la keyword const
+- creamos un metodo static. que nos va a permitir leer el valor que va a retornar este metodo. 
+- no vamos a poder modificar el valor de la variable (solo get, no set porque es un Id), puesto que simplemente el el llamado al 
+  metodo static (va a ser un metodo static get)
+
+
+- constatntes estaticas . <<solo lectura>> . creadas con un metodo estatico. para identificar el max de objetos de esta clase por ejm
+   static get MAX_oBJETOS(){
+        return 5;
+    }
+
+OJO: `${}`; se le llama 'template string' esto manda a llamar el metodo toString() de manera automatica
+# Modo Strict:
+- en js comenzamos a utilizar una variable sin haberla declarado, js no generará ningun error. sin 
+  embargo existe el modo strict para evitar ese tipo de malas practicas
+- se agrega la cadena "use strict";
+-se puede utilizar al inicio del programa(en la pimera linea) o dentro de una funcion
+- let: global scope 
+- var: Local scope
+
+# Programacion Orientada a Objetos (POO):
+
+ Sobreescritura:
+ la clase hija hereda algunos rasgos(propiedades) de la clase padre.
+
+- si tenemos la clase padre (empleado), que tiene ciertos atributos y metodos (nombre, sueldo, 
+   ObtenerDetalles()), la clase hija (gerente), va a heredarlos (ObtenerDetalles()), pero con sus propios
+   rasgos. es decir, que en la clase hija se crea tambien el metodo ObtenerDetalles()
+-  al crear toString(), mostrar(), obtenerDetalles(). todos estos metodos y querer imprimirlos por pantalla
+   lo que ahcemos es llamar al super.mmostrar()/ super.toString()/super.obtenerDetalles() y ya le pasaria
+   como argumento las propiedades que exije la clase padre
+
+Diagrama de Objetos y Sobreescritura:
+
+  Objeto Tipo Empleado                   Objeto Tipo gerente
+-------------------------                --------------------------------------------------------------
+metodo obtenerDetalles                1. metodo Sobreescrito obtenerDetalles (este es el que se ejecuta)
+                                      2. metodos agregados por la clase Gerente
+----------------------               ------------------------------------------------------------------
+nombre / sueldo                      1. metodo obtenerDetalles (esta oculto y se ejecuta a traves de super)
+                                     2. otros metodos heredados (aca se van ocultando metodos)
+                                     ------------------------------------------------------------------
+                                      nombre / sueldo
+
+
+- Los metodos heredados son mas internos y ocultos
+- los atributos heredados son los mas internos u ocultos
+- para acceder a un nivel mas interno (donde esta oculto lo de la clase padre), llamamos con super.metodo()
+OJO: despues del primer nivel (metodo sobreescrito y de la clase), lo demas, lo mas interno es lo mismo de 
+     la clase padre (segundo y tercer nivel)
+
+Polimorfismo:
+cuando en una funcion fuera de las clases, le pasamos parametro (x), dentro de ella hacemos un llamado a 
+algun metodo de dstintas clases (return x.obtenerDetalles()), luego al llamar a la funcion, pasamos como
+argumeto el objeto de cualquier clase que tenga el mismo metodo
+
+// funcion fuera de ambas clases
+function imprimir(tipo){
+    return tipo.obtenerDetalles();
+}
+
+let emplado1 = new Empleado("Mateo", "messi");
+let gerente1 = new Gerente("Carlos", "5000", "Administrativa");
+let gerente2 = new Gerente("Carlos", 10000, "Sistemas");
+// al llamar a la funcion le paso como argumento el objeto de cualquiera de las clases
+console.log(imprimir(emplado1));
+console.log(imprimir(gerente1));
+console.log(imprimir(gerente2));
+
+muestran los datos que retorna cada clase
+
+# palabra instanceof:
+- cuando se necesita saber el tipo de dato que estamos recibiendo corresponde a determinada clase.
+-  de esta forma estaremos seguros de que podemos acceder a propiedades o metodos de la clase:
+  console.lo(gerente2.nombre);
+
+-Así lo trabajariamos:
+  function imprimir(tipo){
+    return tipo.obtenerDetalles();
+    if(tipo instanceof Empleado){
+      console.log("Es una instacia de tipo Empleado");
+    }
+}
+
+OJO: como la clase gerente es hija de empleado, tambien va a mostrar el mismo resultado, pero viceversa no
+     no pasa lo mismo, puesto que no aplica de clase hija a clase padre 
+
+# Manejo de errores:
+- cuando trabajamos con nuestros programas, existe la posibilidad de que ocurran errores. De algunos se 
+  puede salir (o manejar) y de otros no.
+- para comenzar a trabajar se debe colocar el programa en modo strict.
+
+1. ReferenceError: cuando trabajamos con modo strict, y no declaramos una variable, despues de esa linea, de codigo 
+   las demas lineas no se ejecutan.
+   - para recuperarnos de ese error trabajamos con la sintaxis "try-catch":
+   - la linea de codigo que tiene el error la envolvemos dentro del try.
+    try{
+      // dentro del try la linea de codigo que genera el error
+      //x= 10;
+      // lo mismo ocurre con una funcion no declarada
+      miFuncion();
+    }
+   - al catch le pasamos por parametro el error
+    catch(error){
+      console.log(error); //nos muestra un error de referencia: la var x no está definida
+    }
+
+   - con el finally, que siempre se va a mostrar (sin importar los dos bloque anteriores "try/catch), se
+     puede mostrar un mensaje o ejecutar una orden. OJO: Este es opcional
+     finally{
+        console.log("termina la revision de errores")
+     } 
+
+    - Clausula throws: cuando queremos personalizar el mensaje de error, trabajamos con esta clausula dentro
+      del try:
+      try{
+        x = 10;
+        throw " mi error";
+      }
+      OJO: tambien lo podemos hacer en el if(x!=0)trow "No es cero!";
+
+# Funciones Flecha:
+
+- son funciones anonimas ( sin nombre) cuando se declara primero una variable donde se guardará la funcion
+-  se declara la variable, seguido del signo de igualdad, los parentesis, el simbolo de flecha (=>) y las
+   llaves {}
+   formas:
+  1.  let miFuncionFlecha = ()=>{}
+- no funciona el hoisting debido a que utilizamos  'let' para declarar la variable  donde se guarda la 
+  funcion, y al usar let no aplica el hoisting
+- tambien podemos usar 'const' para que cuando asignemos una referencia( otra funcion por ejm) a la 
+  variable, no pueda ser modificada 
+  const miFuncionFlecha = ()=>{}  //generalmente usada de esta forma  
+
+  2. const miFuncionFlecha()=> console.log("saludos");
+  - si la funcion retorna un valor, no es necesario colocarle la keyword 'return':
+    const miFuncionFlecha()=>"saludos 2";
+  - si queremos retornar un objeto: le agregamos un parentesis para que las llaves no se confundan con el
+    cuerpo de la funcion
+    const regresaObjeto()=>({Nombre: "Ana"})
+
+# funciones callback:
+
+- son funciones que se pasan como parametro de otras funciones y se pueden llamar en cualquier momento
+- en javaScript la lectura de las operaciones y funciones es secuencial 
+  (promero linea 9, luego la linea 10)
+- este tipo de funciones se trabaja mucho en promesas y funciones asincronas
+
+1. basicamente estamos creando una funcion (funcion1) que va a ser pasada por parametro de otra funcion2
+2. luego creamos otra funcion (funcion2) que realiza una operacion determinada y va a recibir como argumento
+|  otra funcion1.
+3. llamamos la funcion 2 y le pasamos como argumento la funcion1
+  - el argumento (funcion1) conecta con el parametro de la funcion2 y llama a la funcion1, que devuelve
+    la operacion para la que fue creada
+4. cuando esto ocurre, se produce otro flujo de trabajo mientras funcion2 sigue trabajando aparte, es decir
+    se van a poder realizar porcesos por separados al mismo tiempo. a esto se le llama procesos asíncronos
+
+# funcion setTimeout:
+- esta funcion recibe como primer parametro una funcion callback
+- el segundo parametro es el tiempo (en milisegundos) en que queremos que se ejecute la funcion
+
+# setinterval:
+- tambien recibe una funcion tipo callback como parametro
+- se utiliza para procesos asincronos (dos funciones trabajando al mismo tiempo). no secuencial
+- acá se manda a llamar a la funcion callback cada cierto tiempo
+
+
+#Promesas:
+
+- codigo que tiene varios estados. que trabaja con funciones callback
+- se lanza una peticion para poder procesar codigo desde unstatus de Pending (dependiente).
+- en case de que la promesa se haya resuelto  correctamente o resolved (resuelto), acá 
+  utilizariamos .then()
+- en caso de que dé problemas se llama el caso de rejected (rechazado), acá utilizariamos .catch()
+
+* para crearla:
+1. creo el objeto promesa (let mipromesa = new Promise())
+2. dentro de mi objeto, como parametro va una funcion con dos parametros (resolved y rejected), la funcion
+ va a ser una de tipo callback.
+ OJO: puede ser un solo parametro(resolved) o ninguno( llamando al metodo then y generando una respuesta)
+   como funcion flecha 
+  let  miPromesa = new Promise((resolved, rejected)=>{
+
+  })
+3. dentro del codigo voy a llamar a mis funciones 
+
+- podemos crear una promesa dentro de otra promesa y así ir anidando promesas
+
+# promesas con setTimeout
+
+  - creas el objeto de la clase promesas
+  - dentro la funcion flecha con el parametro 'resolve' (opcional)
+
+  const miPromesa = new Promise((resolve)=>{})
+
+  - dentro el metodo setTimeout(con sus dos parametros (resolve, el tiempo en milisegundos(1000)))
+
+    const miPromesa = new Promise((resolve)=>{setTimeout((resolve))})
+
+  - instancias el objeto con el metodo then, y dentro una funcion flecha con el argumento (valor) del 
+    parametro resolve
+    miPromesa.then(valor=>console.log(valor));
+
+# palabra Async con promesas en javaScript:
+- al colocarla al comienzo de la funcion, hace Hace que una funcion retorne una promesa. 
+- facilita el uso de promesas
+- viene a sustituir todo el codigo de promesas
+
+  Async function miPromesa2(){return "lo que queremos retornar"};
+
+- al llamar a la funcion, hacemos lo mismo con el metodo .then(), salvo que como no creamos un objeto de 
+  tipo promesa, al llamar a miPromesa2, que es una funcion debemo colocarle parentesis 
+
+  miPromesa2().then(valor=>console.log(valor));
+
+# Palabra Await:
+- hace que una funcion espere por una promesa
+- siempre va dentro de una funcion que sea declarada con Async
+- si no se usa Async, genera un error al utilizar  Await dentro de la pormesa
+- al llamar a la funcion, no se necesita el uso del metodo then(). lo que simplifica el codigo
+- dentro de la funcion, se define una promesa y se le pasa por parametro el resolve y lo que retornará
+
+  Async function asyncPromesaAwait(){
+    let promesa = new >Promise(resolve=>{
+      resolve("promesa con Await");
+    });
+  }
+- fuera de la promesa (pero dentro de la misma funcion), imprimimos la funcion, utilizzando antes la 
+  palabra Await
+
+  console.log(Await asyncPromesaAwait);
+
+- luego, mandamos a llamar a la funcion como se hace regularmente en una funcion cualquiera
+
+  asyncPromesaAwait();
+- al final:
+
+Async function asyncPromesaAwait(){
+    let promesa = new >Promise(resolve=>{
+      resolve("promesa con Await");
+    });
+    console.log(Await asyncPromesaAwait);
+
+}
+
+asyncPromesaAwait();
+
+# Async - Await - setTimeout:
+
+
+# DOM (Document OBject Model):
+
+- todos los elementos en el documento HTML, desde el tag <html>, <head>, <body>... es un objeto en javaScript
+
+- el objeto principal para acceder al documento HTML es "Document", a traves de él podremos interactuar con
+  los demas elementos html (tags)
+- commo son objetos (los elementos html), tienen atributos y metodos, de los cuales podemos podemos hacer 
+  uso (borrar, modificar...) desde javaScript
+-
+
+# como trabajar con el DOM y javaScript
+
+- debemos trabajar con Docs HTML
+- podemos trabajar javaScript desde el documento HTML con la etiqueta <script>. La etiqueta debe estaremos
+  posicionada despues de los demas elementos HTML con los que se quiera trabajar usando javaScript.
+
+  ejm: si queremos modificar un h1, la etiqueta script debe ir debajo del elemento h1.
+  OJO: generalmente la etiqueta script siempre va al final del documento HTML
+- desde la pagina, al dar inspeccionar=>console, podemos ver lo que se imprime desde javaScript
+
+# Acceder al DOM:
+
+1. con el id en el elemento HTML
+2. crear una variable para guardar en javaScript el elemento HTML
+3. acceder al objeto Document, el metodo getElementById (document.getElementById("")) y el  nombre(id)
+   del tag HTML que se le dió al h1.
+   OJO: esto solo regresa un objeto, no el contenido del tag
+
+4. para acceder al valor debemos trabajar con la propiedad innerHtml
+    document.getElementById("").innerHtml;
+    * ahora si estamos accediendo al documento HTML
+5. podemos  mostrar el valor del inner de la etiqueta desde la consola 
+  console.log("Valor titulo: ", titulo );
+  OJO: tambien se trabaja con template literals  ` cadena: ${variable}`;
+
+# Modificar el DOM con javaScript:
+- desde la propiedad innerHtml podemos modificar el valor del elemento HTML
+  titulo.innerHtml = "nuevo valor del titulo";
+
+# getElementById
+# getElementsByTagName:
+# getElementsByClassName
+- not much to say. salvo recordar que si son varios elemento los recorres con un fo (preferiblemente for of)
+
+# metodo QuerySalectorAll:
+- Trabaja tanto con el elemento html, como con su clase (CSS) 
+ let elementos =  document.querySalectorAll("p.azul"); Aca retornaria los parrafos con clase 'azul'
+
+# Manejo de formaularios en javaScript
+- para trabajar con formularios podemos crear una funcion que ejecute una tarea luego de que el elemento
+  HTML haga el llamado a un evento (onclick = "ejecutarTarea1()")
+- dentro de la funcion (ejecutarTarea1()), creamos una variable para accerder al formulario por medio del
+  objects document
+- el objeto Document posee un atributo que El atributo Forms[].
+- debido a que es un array (tiene varios inputs) trabajamos con corchetes, y dentro de los mismos, entre
+  comillas colocamos el nombre (el id por ejemplo) del formulario al que deseamos accedder:
+  function ejecutarTarea1(){
+    let formulario = document.forms['miFormulario'];
+  } 
+
+- luego, creamos una variable con un string vacio para que se vayan concatenando los elementos del objeto
+  formulario al recorrerlos con un for
+  let texto = "";
+- creo el for para recorrer y concatenar los valores (value) de los elementos del formulario en la variable
+  texto:
+
+     for(elemento of formulario){
+        texto += elemento.value + '<br/>';
+    }
+- luego lo mando a imprimir por consola a ver si genera error. si no, lo muestro en un div, un p, h2...
+- a ese div, p, h2... le damos un id ('elementosForm') y le asignamos el valor de la variable 'texto'
+   document.getElementById('elementosForm').innerHTML = texto; 
+
+# Formularios en javaScript:
+- fuera del for creas un boton para mostrar el resultado con un evento, que será una funcion
+- creas la funcion
+- accerder a los elementos del formulario:
+
+1. dentro de la funcion creas la variable  del objeto formulario, con el document.forms[] y lo asocias
+   al id del form.
+  let formulario = document.forms['formulario'];
+  OJO: corchetes porque es un array
+2. creas la variable vacia que es donde vas a guardar los valores de los elementos del form. esa variable
+    debe ir asociada aun elemento html (<p id="elementosForm">) previamente creado (fuera del form ) 
+    para mostrar en la pagina por su id
+    let texto ='';
+3.  recorres con un for el formulario ( es un array con varios elementos)
+    OJO: siempre acceder a la propiedad .value que que va a mostar el contenido del elemnto en la pag
+    for(elemento of formulario){
+                   texto += elemento.value + '<br/>';
+               }
+4. asocias la var texto con el innerHTML (p, h1) para mostrarlo en la pagina:
+    document.getElementById('elementosForm').innerHTML = texto;
+
+# Acceder y mostrar elementos html del form de manera individual
+- para acceder de manera individual  lo hacemos sin el for. solo creamos variables por cada elemento
+  despues de crear la funcion, la var cadena de texto vacia ( donde se guarda todo elemento).
+  - estas variables van a crear un objeto formulario con la propiedad value para acceder al innerHTML
+  function elementosHtmlPorSeparado(){
+                // con el metodo form[] accedo al formulario 
+                let formulario = document.forms['formulario'];
+                // cadena para mostrar  en la pagina. le debo dar el nombre cadena a un elemento html nuevo
+                let cadena = '';
+
+                let nombre = formulario['nombre'].value;
+
+-  final lo mostramos de la misma forma con la que lo hicimos en el metodo anterior
+
+    cadena = nombre +' '+ apellido + '<br/>' + volumen + '<br/>' +'fecha de cumpleaños: '+ cumple;
+    document.getElementById('cadena').innerHTML = cadena;
+
+
+# Metodo document.write()
+
+- desde este metodo podemos imprimir info (cadena) desde la pagina sin utilizar html.  
+OJO: esto sobreescribe todo el contenido en la pag.
+- es utilizado para mostrar mensajes de error y alertas. cosas por el estilo
+
+# Cambio de contenido en el DOM:
+
+- con el metodo document,getElementById(idDelTag).innerHTML = nombreVariable;
+- este codigo lo podemos meter en una funcion:
+1. creando un boton que trabaje con un evento (onclick) con el nombre de la funcion
+2. al darle click al boton, se llama a la funcion que a su vez cambiara el inner del elemento html que
+   tenga el id ,encionado en el metodo.
+3.si quisieramos agregar otro valor o contenido al inner de la etiqueta html (+=)
+            document.getElementById('titulo').innerHTML+= ' Nuevo Titulo';
+
+# Cambio de atributos en los elementos html desde javaScript
+
+- cada elemento tiene distintos atributos (src, target, name, )
+- desde la funcion se copia lo siguiente, si se quiere modificar el src por ejemplo:
+
+  document.getElementById('imagen').src= 'http://globalmentoring.com.mx/imagenes/html5.png';
+
+# Cambio de estilos con javaScript
+
+- de la misma forma:
+document.getElementById('titulo').style.color = 'blue';
+
+# Eventos:
+- cuando trabajamos los eventos, las etiquetas o elementos html se trabajan como objetos, por lo tanto,
+  podemos llamar una funcion o hacerlo a traves del keyword 'this', que hace referencia al objetos h1 y
+  trabajar (añadir valores o modificarlos) con su atributos o propiedades
+
+
+# Asociar eventos a elementos html:
+
+- los cambios se hacen a traves del script, de forma dinamica.
+- accedemos al elemento html a traves del 'id' del objeto document.getElementById('id')
+- luego le asociamos un evento que haga referencia a una funcion de tipo callback
+- esa funcion va a cambiar el innerHTML (puede ser cualquier atributo y metodo del elemento) del tag
+
+    <h1 id="titulo"> Eventos en javascript</h1>
+    <div id="mostrar"></div>
+
+   document.getElementById('titulo').onclick = cambiarTitulo;
+        function cambiarTitulo(){
+            document.getElementById('titulo').innerHTML = 'Nuevo Titulo';
+            document.getElementById('mostrar').innerHTML = 'Nuevo Div';
+            document.getElementById('mostrar').style.color = 'red';
+        } 
+
+# Manejo del Evento onload:
+- se da cuando se carga nuestra pagina
+- para confirmar esto podemos enviar un pop up desde la funcion alert desde el tag body onload='alerta()'
+- nos sirve tambien para ver si estan habilitadas la cookies (desde el objeto navigator), el idioma...
+  .cookieEnabled(cookie habilitada)
+
+  let hello = '';
+        if(navigator.cookieEnabled){
+          hello = 'las cookies están habilitadas';
+        }
+# Evento onchange:
+- se va a querer capturar cuando se modifica un campo de texto (input) o los elementos de un formulario
+
+<!-- cuando se ingrese texto al input se llama a la funcion convertir(this)  -->
+    <!-- con el keyword this para no acceder desde el objeto document.getElemntById -->
+  <label for="nombre">nombre: <input type="text"  onchange="convertir(this)"> </label>
+     
+
+    <script>
+        function convertir(nombreInput){
+          // toUpperCase es una funcion de la clase string
+            nombreInput.value = nombreInput.value.toUpperCase(); 
+            
+
+        }
+    </script>
+# onmouseover - onmouseout :
+-cuando pasamos por encima y dejamosde pasar por encima el mouse de cualquier elemento html
+
+# onmousedown - onmouseup:
+- cuando damos click sin soltarlo sobre algun elemento html, y luego cuando lo soltamos
+
+# onfocus - onblur:
+a.) onfocus: cuando damos click dentro de la casilla de un elemento input text podemos hacer 
+    que el background cambie  de color    
+b.) onblur: cuando el click del cursor no está dentro de la casilla de texto(cuando lo retiramos),
+    ahí podemos darle otro efecto al background
+
+# addEventListener:
+- los eventos no solamente los podemos trabajar del elemnto html, los podejos llamar desde javaScript
+  con el metodo addEventListener()
+- esto limpiara el elemento html, pero incrementoará el codigo javaScript.
+- acá, es necesario el uso del id en las tags con las que se vayan a trabajar
+  1. obtenemos el objeto del DOM con document.getElementById('nombre').addEventListener('focus');
+     OJO: cuando trabajamos con addEventListener, los eventos van sin el on de prefijo
+  2. como segundo parametro del metodo le pasamos la funcion como referencia(sin parentesis)
+      document.getElementById('nombre').addEventListener('focus', cambiarBAckground);
+      OJO: acá cambiarBAckground es una funcion callback
+  3. en la funcion podemos pasar el evento como parametro para recuperarlo
+  4. como en el llamado a la funcion no podemos llamar al keyword this, porque cambiarBack se pasa como
+     referencia, utilizamos la propiedad .target para que nos devuelva el elemento que lanzo ese evento
+     ( el input nombre)
+  5. todo esto lo asignamos a una variable (componente) para hacer uso  del elemento(html)
+     con todas sus propiedades
+    OJO: las funciones flecha no tienn hoisting. por lo tanto no se puede trabajar acá con ellas
+      function cambiarBack(evento){
+        let componente = evento.target;
+
+        componente.style.background = 'red'
+      }
+  
+# funciones flecha en addEventListener:
+
+- con las funciones flecha no se puede reutilizar el codigo
+- acá en vez de pasar como parametro el nombre de la funcion como referencia, pasamos la funcion flecha
+  y su bloque de codigo completo como parametro
+
+  document.getElementById('nombre').addEventListener('focus', (evento)=>{
+    evento.target.style.background = 'blue';
+  });
+
+# Delegacion de eventos con javaScript:
+
+- si todo esto esta dentro de un formulario (form), el codigo se hace mas sencillo y limpio
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

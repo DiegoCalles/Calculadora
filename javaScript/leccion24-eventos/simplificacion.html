@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simplificacion de addEventListener en un form</title>
+</head>
+<body>
+
+    <form action="" id="formulario">
+        <label for="nombre">Nombre: 
+            
+            <input type="text"  id="nombre">
+            
+        </label><br><br>
+
+        <label for="apellido">Apellido: 
+            
+            <input type="text" id="apellido" >
+            
+        </label><br><br>
+
+        <label for="dni">   DNI: 
+            
+            <input type="text" id="dni" >
+            
+        </label>
+    </form>
+    <script>
+        // evento focus
+        // OJO: cuando hacemos los cambios de afuera hacia lo elementos internos, debemos agregar un 
+        // parametro más (true), para señalar que lo que se aplica en el tag form, tambien lo hace en 
+        // los elementos internos, false es el valor por default.
+        //  Esto se conoce como Delegacion de eventos o Use Capture
+        const formulario = document.getElementById('formulario');
+        formulario.addEventListener('focus', (evento)=>{
+            evento.target.style.background = 'gray';
+            evento.target.style.color = 'white';
+        }, true);
+
+        // evento blur
+
+        formulario.addEventListener('blur', (evento)=>{
+            evento.target.style.background = 'crimson';
+            evento.target.style.color = 'lightPink';
+        }, true);
+
+    </script>
+
+    
+</body>
+</html>

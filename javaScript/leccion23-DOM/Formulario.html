@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con javaScript</title>
+    <style>
+        #volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #5da39c;
+        }
+        #volume:hover {
+            opacity: 1;
+            
+        }
+        #volume::-webkit-slider-thumb:active{
+            background: #f0f279;
+
+        }
+        #volume::-moz-range-thumb:active {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #d7cece;
+            cursor: pointer;
+            box-shadow:0px 0px 11px 8px rgba(0,0,0,0.26);
+            background: url(https://www.flaticon.com/svg/vstatic/svg/59/59089.svg?token=exp=1614064733~hmac=a6f0cce2214fdb52e7df9eec24006427) #75b4c3;
+            background-size: 45%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        #volume::-moz-range-thumb{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #dbcece;
+            cursor: pointer;
+            box-shadow:0px 0px 11px 8px rgba(0,0,0,0.26);
+            background: url(https://www.flaticon.com/svg/vstatic/svg/59/59089.svg?token=exp=1614064733~hmac=a6f0cce2214fdb52e7df9eec24006427) #75b4c3;
+            background-size: 45%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #volume {
+            -webkit-appearance: none;
+            width: 10%;
+            height: 5px;
+            border-radius: 5px;
+            background: #d25959;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <form action="" id="formulario">
+
+            <label for="nombre">nombre: <input type="text" name="nombre" value="Juan"></label><br><br>
+            <label for="apellido">apellido: <input type="text" name="apellido" value="Calles"></label><br><br>
+            <label for="volume">Volume (between 0 and 50)</label>
+            <input type="range" id="volume" name="volume" min="0" max="50" style="color: black;"><br><br>
+            <label for="cumpleaños">Cumpleaños: <input type="month" id="cumpleaños"></label>
+        </form><br>
+        <button onclick="mostrarResultado()">Mostrar</button>
+        <button onclick="elementosHtmlPorSeparado()"> Nombre y Apellido</button>
+        <button onclick="resumen()">Resumen</button>
+
+        <p id="elementosForm"></p><br>
+
+        <p id="cadena"></p><br>
+
+        <h2 id="resumen"></h2>
+
+        <script>
+            function mostrarResultado(){
+               let formulario = document.forms['formulario'];
+               let texto ='';
+
+               for(elemento of formulario){
+                   texto += elemento.value + '<br/>';
+               }
+
+               //console.log(texto); // para probar por consola
+
+               document.getElementById('elementosForm').innerHTML = texto;
+               // OJO: con el range me va a mostrar el volumen asignado desde el input (de 0 a 50)
+            }   
+            // para acceder a cada elemento html por separado
+
+            function elementosHtmlPorSeparado(){
+                // con el metodo form[] accedo al formulario 
+                let formulario = document.forms['formulario'];
+                // cadena para mostrar  en la pagina. le debo dar el nombre cadena a un elemento html nuevo
+                let cadena = '';
+
+                let nombre = formulario['nombre'].value;
+                let apellido = formulario['apellido']. value;
+
+                let volumen = formulario['volume']. value;
+                let cumple = formulario['cumpleaños'].value; 
+
+                cadena = nombre +' '+ apellido + '<br/>' + volumen + '<br/>' +'fecha de cumpleaños: '+ cumple;
+                document.getElementById('cadena').innerHTML = cadena;
+
+            }
+            function resumen(){
+
+                let formulario = document.forms['formulario'];
+
+                let todo = '';
+
+                let nombre = formulario['nombre'].value;
+                let apellido = formulario['apellido'].value;
+                let cumple = formulario['cumpleaños'].value;
+                let volumen = formulario['volume'].value;
+
+                todo = nombre +' '+ apellido+ ' '+ 'Cumpleaños: '+ cumple + '<br/>' + 'volumen: '+ volumen;
+
+                document.getElementById('resumen').innerHTML = todo;
+            }
+
+
+           
+        </script>
+    </div>
+    
+</body>
+</html>
