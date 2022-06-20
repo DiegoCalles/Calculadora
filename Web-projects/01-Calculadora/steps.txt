@@ -1,0 +1,46 @@
+# PAsos para crear la app:
+
+1. meterse en la pagina de bootstrap y copiar un template para trabajar como punto de partida
+2. dentro del directorio calculadora crear el de js, dentro de este crear app.js
+3. asociar el app.js a mi documento html con un script en la parte inferior del documento html
+4. meter todo los elementos dentro de un div (container)
+5. serciorarse de si esta trabajando correctamente el link js, enviando un console.log desde el app.js y veriificandolo en la pag
+   (inspecionar/console)
+6. agregar un form con un id='forma'
+7. agregar un div dentro con un id='mb-3' <!-- mb = margin bottom de 3px para separar los elementos de nuestro form -->
+
+# Agregar inputs al form:
+1. input id='operandoA' y operandoB dentro del div, que a su vez está dentro del form
+2. crear un boton (sumar), fuera del form con ciertas clase de bootstrap y con el evento onclick que llame a la funcion"sumar()"
+3. crear un div para el resultado 
+
+# # Crear la clase sumar()
+
+// function sumar(){
+//     // con esto recupreamos el objeto forma de la clase formulario
+//     const forma = document.getElementById('forma');
+
+//     // aca accedemos a los input del formulario. esto nos va a regresar todo el elemento de tipo input number ( no los valores)
+//     let operandoA = forma['operandoA'];
+//     let operandoB = forma['operandoB'];
+
+//     // con este recuperamos el valor de  los operando y los sumamos
+        //parseInt() para que me lea los operando como numeros y no como strings
+//     let resultado = parseInt(operandoA.value) + parseInt(operandoB.value); 
+
+        si no se ingresan valores nuemricos el resultado será NaN. para manejar el error de mejor manera trabajamos con una condicion y
+        el metodo isNaN() para el resultado
+
+        if(isNaN(resultado)){
+                reesultado = 'Nose ingresaron Valores Numericos';
+        }
+
+//     // vamos a recuperar el elemento button (resultado) y en su inner le asignamos el valor de la variable resultado con template string
+//     document.getElementById('resultado').innerHTML = `resultado: ${resultado}`;
+
+        para confirmar que todo ande bien enviamos el resultado por consola
+        console.log(`resultado: ${resultado}`)
+// }
+
+
+Así hariamos con todas las funciones.
