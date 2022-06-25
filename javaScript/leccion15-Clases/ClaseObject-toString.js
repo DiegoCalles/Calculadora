@@ -1,1 +1,0 @@
-// está en ejercicio de herencia :)
